@@ -28,13 +28,28 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>
-<a name="virtual-vulcano" class="anchor" href="#virtual-vulcano"><span class="octicon octicon-link"></span></a>virtual-vulcano</h1>
 
 <h2>
 <a name="planteamiento-del-proyecto" class="anchor" href="#planteamiento-del-proyecto"><span class="octicon octicon-link"></span></a>Planteamiento del proyecto</h2>
 
-<p><a href="docs/planteamiento.md">Documentación con el planteamiento</a></p>
+<p>El objetivo principal es facilitar y centralizar la administración de clústeres de máquinas ejecutando CoreOS y contenedores en Docker para la aplicaciones usando una plataforma web que se pueda consultar online y ejecutarse dentro del propio servidor.</p>
+
+<p>Queremos enfocar el proyecto para que siga la siguiente ruta:</p>
+
+<ol class="task-list">
+<li><p>Administrar clústeres de CoreOS generando los ficheros <code>cloud-config</code> que necesitan para inicializarse.</p></li>
+<li><p>Administrar, encender y apagar contenedores dentro de los clústeres.</p></li>
+<li><p>Monitorizar el estado de los contenedores para saber cuando están en ejecución y cuando se han cerrado.</p></li>
+</ol>
+
+<p>Además queremos ampliar las funcionalidades de nuestro panel en la medida en que sea posible añadiendo:</p>
+
+<ul class="task-list">
+<li><p>Monitorización de contenedores para recibir por email notificaciones cuando fallan y se cierran.</p></li>
+<li><p>Visualizar los logs de los containers directamente desde la página online.</p></li>
+<li><p>Llevar un histórico de la CPU, la RAM y otras medidas interesantes que se gastan dentro de cada uno de los containers.</p></li>
+<li><p>Llevar un histórico con medidas interesantes de las propias máquinas.</p></li>
+</ul>
         </section>
 
         <aside id="sidebar">
