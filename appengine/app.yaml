@@ -16,14 +16,7 @@ handlers:
   upload: static/favicon.ico
   expiration: "365d"
 
-- url: /robots.txt
-  static_files: static/robots.txt
-  upload: static/robots.txt
-  expiration: "365d"
 
-- url: /
-  static_files: partials/index.html
-  upload: partials/index.html
 
 
 skip_files:
