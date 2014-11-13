@@ -15,3 +15,5 @@ Documentacion
 
 [Tecnologias utilizadas](docs/tecnologias.md)
 
+[Arquitectura de la aplicación](docs/arquitectura.md)
+
