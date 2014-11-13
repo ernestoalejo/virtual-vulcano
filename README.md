@@ -2,10 +2,16 @@
 virtual-vulcano
 ===============
 
+Aplicacion
+----------
 
-Planteamiento del proyecto
---------------------------
+[Instalación online](http://virtual-vulcano.appspot.com/)
 
-[Documentación con el planteamiento](docs/planteamiento.md)
 
-[Documentación con las tecnologias utilizadas](docs/tecnologias.md)
+Documentacion
+-------------
+
+[Planteamiento del proyecto](docs/planteamiento.md)
+
+[Tecnologias utilizadas](docs/tecnologias.md)
+
