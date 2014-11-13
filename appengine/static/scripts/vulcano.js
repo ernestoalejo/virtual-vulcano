@@ -12,11 +12,13 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 	ctrl.generate = function () {
 		$q.all([
 			$http.get('/static/assets/cloud-config.tmpl'),
-			// $http.get('/api/code'),
+			$http.post('/api/code'),
 		]).then(function (result) {
 			var template = result[0];
 			var code = result[1];
 
+			ctrl.cloudConfig = template.data.replace('${TOKEN}', code.data.id);
+			console.log(ctrl.cloudConfig);
 		});
 	};
 });

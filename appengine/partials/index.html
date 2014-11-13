@@ -11,16 +11,18 @@
   <link rel="stylesheet" type="text/css" href="/static/styles/font-awesome.min.css">
 
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="vulcano.GenerateCtrl as ctrl">
 
   <div class="container">
     <p>&nbsp;</p>
-    <div class="jumbotron text-center" ng-controller="vulcano.GenerateCtrl as ctrl">
+    <div class="jumbotron text-center" ng-hide="ctrl.cloudConfig">
       <h1>Generar cloud-config</h1>
 
       <p>&nbsp;</p>
       <button class="btn btn-primary btn-lg" ng-click="ctrl.generate()">Generar</button>
     </div>
+
+    <textarea ng-show="ctrl.cloudConfig">{{ ctrl.cloudConfig }}</textarea>
   </div>
 
   <script type="text/javascript" src="/static/scripts/jquery-2.1.1.min.js"></script>
