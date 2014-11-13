@@ -11,15 +11,15 @@
   <link rel="stylesheet" type="text/css" href="/static/styles/font-awesome.min.css">
 
 </head>
-<body>
+<body ng-app="app">
 
   <div class="container">
     <p>&nbsp;</p>
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" ng-controller="vulcano.GenerateCtrl as ctrl">
       <h1>Generar cloud-config</h1>
 
       <p>&nbsp;</p>
-      <button class="btn btn-primary btn-lg">Generar</button>
+      <button class="btn btn-primary btn-lg" ng-click="ctrl.generate()">Generar</button>
     </div>
   </div>
 
