@@ -21,8 +21,9 @@ handlers:
   upload: static/robots.txt
   expiration: "365d"
 
-- url: /.*
-  script: server.application
+- url: /
+  static_files: partials/index.html
+  upload: partials/index.html
 
 
 skip_files:
