@@ -8,6 +8,7 @@ import webapp2
 
 debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
 
+
 application = webapp2.WSGIApplication([
-  ('/', 'virtual.handlers.hello_world_handler.HelloWorldHandler'),
+  ('/api/code', 'virtual.handlers.code_handler.CodeHandler'),
 ], debug=debug)

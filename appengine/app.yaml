@@ -25,6 +25,9 @@ handlers:
   static_files: partials/index.html
   upload: partials/index.html
 
+- url: /api/.*
+  script: server.application
+
 
 skip_files:
 - old

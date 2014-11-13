@@ -17,7 +17,6 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 			var template = result[0];
 			var code = result[1];
 
-			// console.log(template.data);
 		});
 	};
 });
