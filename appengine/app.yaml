@@ -41,9 +41,7 @@ skip_files:
 - ^(.*/)?.*\.md$
 - ^(.*/)?datastore
 - ^(.*/)?Thumbs\.db$
-- ^(.*/)?.*_test\.go$
-- ^(.*/)?.*_example\.go$
-- ^(.*/)?.*/example/.*
+- ^(.*/)?.*\.pyc$
 - ^(.*/)?.*/out/.*
 - ^(.*/)?.*/examples/.*
 - ^(.*/)?.*/tools/.*
