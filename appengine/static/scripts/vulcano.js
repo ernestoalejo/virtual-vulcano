@@ -10,6 +10,8 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 	var ctrl = this;
 
 	ctrl.generate = function () {
+		ctrl.loading = true;
+		
 		$q.all([
 			$http.get('/static/assets/cloud-config.tmpl'),
 			$http.post('/api/code'),
@@ -18,7 +20,6 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 			var code = result[1];
 
 			ctrl.cloudConfig = template.data.replace('${TOKEN}', code.data.id);
-			console.log(ctrl.cloudConfig);
 		});
 	};
 });
