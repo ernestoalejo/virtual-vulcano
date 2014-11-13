@@ -7,7 +7,7 @@ RUN apt-get -y install python-pil
 
 RUN pip install Flask
 
-ADD vulcano/ /vulcano
+ADD web/ /web
 
-WORKDIR /vulcano
+WORKDIR /web
 CMD python server.py
