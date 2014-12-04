@@ -17,3 +17,7 @@ Documentacion
 
 [Arquitectura de la aplicación](docs/arquitectura.md)
 
+
+Licencia
+-------------
+[FreeBSD](LICENSE)
