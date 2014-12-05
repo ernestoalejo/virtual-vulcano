@@ -6,4 +6,4 @@
 # 
 
 cmd/docker/build.sh
-(cd containers && docker push virtualvulcano/virtual-vulcano)
+(cd container && docker push virtualvulcano/virtual-vulcano)

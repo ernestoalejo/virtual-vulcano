@@ -5,4 +5,4 @@
 # can be found in the LICENSE.md file.
 # 
 
-(cd containers && docker run -i -t virtualvulcano/virtual-vulcano)
+(cd container && docker run -i -t virtualvulcano/virtual-vulcano)
