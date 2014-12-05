@@ -1,4 +1,4 @@
-Copyright (c) 2014, Virtual Vulcano contributors
+Copyright (c) 2014, Virtual Vulcano authors
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
