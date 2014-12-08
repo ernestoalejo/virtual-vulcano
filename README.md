@@ -20,4 +20,4 @@ Documentacion
 
 Licencia
 -------------
-[FreeBSD](LICENSE)
+[FreeBSD](LICENSE.md)
