@@ -1,0 +1,23 @@
+{
+  "name": "virtual-vulcano",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ernestoalejo/virtual-vulcano.git"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/ernestoalejo/virtual-vulcano/issues"
+  },
+  "homepage": "http://ernestoalejo.github.io/virtual-vulcano",
+  "dependencies": {
+    "express": "^4.10.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
