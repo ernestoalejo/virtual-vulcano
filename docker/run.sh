@@ -5,4 +5,4 @@
 # can be found in the LICENSE.md file.
 # 
 
-(cd container && docker run -i -t virtualvulcano/virtual-vulcano)
+docker run --privileged=true -v $(pwd):/web -i -t virtualvulcano/virtual-vulcano bash

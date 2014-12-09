@@ -7,7 +7,7 @@ MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
 RUN apt-get update
 
-ADD web/ /web
+ADD . /web
 
 WORKDIR /web
 CMD node index.js
