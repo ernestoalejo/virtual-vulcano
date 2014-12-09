@@ -18,6 +18,9 @@
     "express": "^4.10.4"
   },
   "devDependencies": {
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-util": "^3.0.1",
+    "gulp-watch": "^3.0.0"
   }
 }
