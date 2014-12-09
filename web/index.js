@@ -4,4 +4,18 @@
 // Use of this source code is governed by a BSD-style license that
 // can be found in the LICENSE.md file.
 
-console.log('test!');
+var express = require('express');
+
+
+var app = express();
+
+
+app.get('/', function (req, res) {
+  res.send('Hello Worl2d!')
+})
+
+
+app.listen(8080, function () {
+  console.log('server listening in localhost:8080');
+});
+
