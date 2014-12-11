@@ -1,4 +1,4 @@
 
-node_modules
+web/node_modules
 **/*.pyc
 web/app/static/vendor
