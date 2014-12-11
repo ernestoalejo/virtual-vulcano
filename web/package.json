@@ -15,7 +15,10 @@
   },
   "homepage": "http://ernestoalejo.github.io/virtual-vulcano",
   "dependencies": {
-    "express": "^4.10.4"
+    "child-process-promise": "^1.0.0",
+    "express": "^4.10.4",
+    "lodash": "^2.4.1",
+    "q": "^1.1.2"
   },
   "devDependencies": {
     "gulp": "^3.8.10",

@@ -1,0 +1,25 @@
+# Copyright (c) 2014 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+# 
+# cloud-config template to new container
+
+
+coreos:
+  etcd:
+    discovery: https://discovery.etcd.io/<%- clusterId %>
+    addr: $private_ipv4:4001
+    peer-addr: $private_ipv4:7001
+
+  fleet:
+    public-ip: $private_ipv4
+
+  units:
+    - name: etcd.service
+      command: start
+
+    - name: fleet.service
+      command: start
+
+  ssh_authorized_keys:
+    - ssh-rsa: <%- cloudConfig %>
