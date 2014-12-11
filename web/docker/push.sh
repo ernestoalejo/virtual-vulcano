@@ -5,4 +5,5 @@
 # can be found in the LICENSE.md file.
 # 
 
-docker build -t virtualvulcano/virtual-vulcano .
+docker/build.sh
+docker push virtualvulcano/web
