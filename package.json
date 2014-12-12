@@ -15,7 +15,8 @@
   },
   "homepage": "http://ernestoalejo.github.io/virtual-vulcano",
   "dependencies": {
-    "express": "^4.10.4"
+    "express": "^4.10.4",
+    "mongoose": "^3.8.20"
   },
   "devDependencies": {
     "gulp": "^3.8.10",
