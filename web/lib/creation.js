@@ -9,28 +9,29 @@ var fs = require('fs'),
     Q = require('q'),
     exec = require('child-process-promise').exec;
 
+
 module.exports = {
     create: function (clusterId) {
         var info = {};
-        return Q.nfcall(fs.lstat, '/root/.ssh/id_rsa')
-            .then(function (exists) {
-                if (!exists) {
-                    return exec('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
-                }
-            }).then(function () {
+        return Q.nfcall(fs.stat, '/root/.ssh/id_rsa')
+            .catch(function () {
+                return exec('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
+            })
+            .then(function () {
                 return Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf8');
             }).then(function (sshContent) {
                 info.sshContent = sshContent;
                 return Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf8');
             }).then(function (cloudConfigTemplate) {
-                var cloudConfig = _.template(cloudConfigTemplate, {
+                return _.template(cloudConfigTemplate, {
                     'ID': clusterId,
                     'sshRsa': info.sshContent,
                 });
-                console.log(cloudConfig);
             });
-
     },
 };
 
-module.exports.create('test');
+
+module.exports.create('test').then(function (tt) {
+    console.log(tt);
+});
