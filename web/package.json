@@ -1,6 +1,7 @@
 {
   "name": "virtual-vulcano",
   "version": "0.0.0",
+  "description": "Web application to manage and monitorize CoreOS/Docker based clusters.",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -21,8 +22,10 @@
     "q": "^1.1.2"
   },
   "devDependencies": {
+    "expect.js": "^0.3.1",
     "gulp": "^3.8.10",
     "gulp-load-plugins": "^0.8.0",
+    "gulp-mocha": "^2.0.0",
     "gulp-util": "^3.0.1",
     "gulp-watch": "^3.0.0"
   }

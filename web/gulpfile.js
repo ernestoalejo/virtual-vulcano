@@ -1,6 +1,6 @@
-# Copyright (c) 2014 The Virtual Vulcano authors. All rights reserved.
-# Use of this source code is governed by a BSD-style license that
-# can be found in the LICENSE.md file.
+// Copyright (c) 2014 The Virtual Vulcano authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that
+// can be found in the LICENSE.md file.
 
 'use strict';
 
@@ -10,4 +10,10 @@ var gulp = require('gulp'),
 
 gulp.task('default', function () {
   $.util.log($.util.colors.red('Specify a task!'));
+});
+
+
+gulp.task('test', function () {
+    return gulp.src('lib/**/*test.js', {read: false})
+        .pipe(mocha({reporter: 'spec'}));
 });
