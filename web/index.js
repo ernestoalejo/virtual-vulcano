@@ -6,14 +6,14 @@
 
 var express = require('express');
 
-
 var app = express();
 
 app.get('/clusters', clusters.list);
-app.get('/clusters', clusters.show);
-app.get('/clusters', clusters.remove);
+app.get('/clusters/:id', clusters.show);
+app.delete('/clusters/:id', clusters.destroy);
 app.get('/clusters', clusters.create);
-app.get('/clusters', clusters.update);
+app.put('/clusters/:id', clusters.update);
+
 
 app.get('/', function (req, res) {
   res.send('Hello Worl2d!')
