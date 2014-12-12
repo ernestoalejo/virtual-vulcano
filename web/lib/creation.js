@@ -12,28 +12,25 @@ var fs = require('fs'),
 module.exports = {
     create: function (clusterId) {
         var info = {};
-
-        return Q.nfcall(fs.exists, '/root/.ssh/id_rsa')
+        return Q.nfcall(fs.lstat, '/root/.ssh/id_rsa')
             .then(function (exists) {
-                console.log(sshContent);
                 if (!exists) {
                     return exec('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
                 }
             }).then(function () {
-                return Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub');
+                return Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf8');
             }).then(function (sshContent) {
                 info.sshContent = sshContent;
-                return Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml');
+                return Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf8');
             }).then(function (cloudConfigTemplate) {
-                var cloudConfig = _.template(cloudConfig, {
-                    clusterId: clusterId,
-                    ssh: info.sshContent,
+                var cloudConfig = _.template(cloudConfigTemplate, {
+                    'ID': clusterId,
+                    'sshRsa': info.sshContent,
                 });
-
+                console.log(cloudConfig);
             });
 
     },
 };
 
-
-module.exports.create('ttaaat');
+module.exports.create('test');

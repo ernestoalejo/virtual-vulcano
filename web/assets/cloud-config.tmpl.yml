@@ -7,7 +7,7 @@
 
 coreos:
   etcd:
-    discovery: https://discovery.etcd.io/<%- clusterId %>
+    discovery: https://discovery.etcd.io/<%- ID %>
     addr: $private_ipv4:4001
     peer-addr: $private_ipv4:7001
 
@@ -22,4 +22,4 @@ coreos:
       command: start
 
   ssh_authorized_keys:
-    - ssh-rsa: <%- cloudConfig %>
+    - ssh-rsa: <%- sshRsa %>
