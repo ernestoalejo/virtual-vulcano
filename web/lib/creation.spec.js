@@ -5,28 +5,27 @@
 'use strict';
 
 var fs = require('fs'),
+    Q = require('q'),
     childProccessPromise = require('child-process-promise'),
+    _ = require('lodash'),
     creation = require('./creation');
 
 
 describe('creation', function () {
 
-    it('should check the correct route', function (done) {
-        spyOn(fs, 'stat').and.callFake(function (path, callback) {
-            callback();
-        });
+    it('should check the correct route', function () {
+        spyOn(Q, 'nfcall').and.returnValue(Q.defer().promise);
 
-        creation._checkIfSSHExists().fin(function () {
-            expect(fs.stat).toHaveBeenCalledWith('/root/.ssh/id_rsa', jasmine.any(Function));
-
-            done();
-        });
+        creation._checkIfSSHExists();
+        
+        expect(Q.nfcall).toHaveBeenCalledWith(fs.stat, '/root/.ssh/id_rsa');
     });
 
     it('should check not generate a new SSH key if one exists before', function (done) {
-        spyOn(fs, 'stat').and.callFake(function (path, callback) {
-            callback();
-        });
+        var defer = Q.defer();
+        defer.resolve();
+
+        spyOn(Q, 'nfcall').and.returnValue(defer.promise);
         spyOn(childProccessPromise, 'exec');
 
         creation._checkIfSSHExists().fin(function () {
@@ -37,9 +36,10 @@ describe('creation', function () {
     });
 
     it('should check generate a new SSH key if there is none', function (done) {
-        spyOn(fs, 'stat').and.callFake(function (path, callback) {
-            callback('file not found');
-        });
+        var defer = Q.defer();
+        defer.reject();
+
+        spyOn(Q, 'nfcall').and.returnValue(defer.promise);
         spyOn(childProccessPromise, 'exec');
 
         creation._checkIfSSHExists().fin(function () {
@@ -47,6 +47,73 @@ describe('creation', function () {
 
             done();
         });
+    });
+
+    it('should call to _checkIfSSHExists()', function () {
+        spyOn(creation, '_checkIfSSHExists').and.returnValue(Q.defer().promise);
+
+        creation.create();
+
+        expect(creation._checkIfSSHExists).toHaveBeenCalled();
+    });
+
+    it('should load cloud-config template and SSH key', function (done) {
+        var defer = Q.defer();
+        defer.resolve();
+        spyOn(creation, '_checkIfSSHExists').and.returnValue(defer.promise);
+
+        spyOn(Q, 'nfcall').and.returnValue(Q.defer().promise);
+
+        creation.create();
+
+        defer.promise.fin(function () {
+            expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8');
+            expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8');
+
+            done();
+        });
+    });
+    
+    iit('should load both files before preparing the cloud-config configuration', function (done) {
+        var defer = Q.defer();
+        defer.resolve();
+        spyOn(creation, '_checkIfSSHExists').and.returnValue(defer.promise);
+
+        spyOn(_, 'template');
+
+        var readDefers = [
+            Q.defer(), 
+            Q.defer(),
+        ];
+        spyOn(Q, 'nfcall').and.callFake(function () {
+            console.log('call');
+            return readDefers[Q.nfcall.calls.count() - 1].promise;
+        });
+
+        creation.create()
+            .then(function () {
+                expect(_.template).not.toHaveBeenCalled();
+
+                readDefers[0].resolve();
+
+                console.log('tt');
+
+                return readDefers[0].promise;
+            })
+            .then(function () {
+                console.log('tt2');
+                expect(_.template).not.toHaveBeenCalled();
+
+                readDefers[1].resolve();
+
+                return readDefers[1].promise;
+            })
+            .then(function () {
+                console.log('tt3');
+                expect(_.template).toHaveBeenCalled();
+
+                done();
+            });
     });
 
 });

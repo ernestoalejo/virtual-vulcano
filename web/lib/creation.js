@@ -19,21 +19,24 @@ module.exports = {
     },
 
     create: function (clusterId) {
-        var info = {};
-
         return this._checkIfSSHExists()
             .then(function () {
-                return Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf8');
+                console.log('all')
+                return Q.all([
+                    Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8'),
+                    Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8'),
+                ]);
             })
-            .then(function (sshContent) {
-                info.sshContent = sshContent;
-                return Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf8');
-            })
-            .then(function (cloudConfigTemplate) {
-                return _.template(cloudConfigTemplate, {
-                    'ID': clusterId,
-                    'sshRsa': info.sshContent,
+            .then(function (result) {
+                console.log('result');
+                var template = result[0];
+                var sshKey = result[1];
+
+                return _.template(template, {
+                    'id': clusterId,
+                    'sshKey': sshKey,
                 });
             });
-    },
+    }, 
+
 };
