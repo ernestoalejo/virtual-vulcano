@@ -79,41 +79,29 @@ describe('creation', function () {
         defer.resolve();
         spyOn(creation, '_checkIfSSHExists').and.returnValue(defer.promise);
 
-        spyOn(_, 'template');
-
         var readDefers = [
             Q.defer(), 
             Q.defer(),
         ];
+        readDefers[0].resolve();
+
         spyOn(Q, 'nfcall').and.callFake(function () {
-            console.log('call');
             return readDefers[Q.nfcall.calls.count() - 1].promise;
         });
 
-        creation.create()
-            .then(function () {
-                expect(_.template).not.toHaveBeenCalled();
+        var spy = jasmine.createSpy();
+        creation.create().then(spy);
 
-                readDefers[0].resolve();
+        readDefers[0].promise.done(function () {
+            expect(spy).not.toHaveBeenCalled();
+            readDefers[1].resolve();
+        });
 
-                console.log('tt');
-
-                return readDefers[0].promise;
-            })
-            .then(function () {
-                console.log('tt2');
-                expect(_.template).not.toHaveBeenCalled();
-
-                readDefers[1].resolve();
-
-                return readDefers[1].promise;
-            })
-            .then(function () {
-                console.log('tt3');
-                expect(_.template).toHaveBeenCalled();
-
-                done();
-            });
+        readDefers[1].promise.done(function () {
+            expect(spy).toHaveBeenCalled();
+            done();
+        });
+            
     });
 
 });

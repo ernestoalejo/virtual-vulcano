@@ -21,14 +21,12 @@ module.exports = {
     create: function (clusterId) {
         return this._checkIfSSHExists()
             .then(function () {
-                console.log('all')
                 return Q.all([
                     Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8'),
                     Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8'),
                 ]);
             })
             .then(function (result) {
-                console.log('result');
                 var template = result[0];
                 var sshKey = result[1];
 
