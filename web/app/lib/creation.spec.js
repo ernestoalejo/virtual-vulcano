@@ -9,7 +9,7 @@ var fs = require('fs'),
     childProccessPromise = require('child-process-promise'),
     _ = require('lodash'),
     creation = require('./creation'),
-    promiseUtils = require('../test/promise-utils'),
+    promiseUtils = require('../../test/promise-utils'),
     run = promiseUtils.run,
     iterativePromisesFunc = promiseUtils.iterativePromisesFunc;
 

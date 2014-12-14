@@ -6,7 +6,7 @@
 
 var childProccessPromise = require('child-process-promise'),
     Q = require('q'),
-    promiseUtils = require('../test/promise-utils'),
+    promiseUtils = require('../../test/promise-utils'),
     run = promiseUtils.run,
     iterativePromisesFunc = promiseUtils.iterativePromisesFunc,
     start = require('./start');
