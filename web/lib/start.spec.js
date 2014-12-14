@@ -6,6 +6,7 @@
 
 var childProccessPromise = require('child-process-promise'),
     Q = require('q'),
+    run = require('../test/promise-utils').run,
     start = require('./start');
 
 
@@ -20,17 +21,19 @@ describe('start', function () {
     expect(childProccessPromise.exec).toHaveBeenCalledWith('scp core@192.168.0.1 /web/assets/start.tmpl.sh /tmp/foo.sh');
   });
 
-  it('should execute ssh to run the start script', function (done) {
+  it('should execute ssh to run the start script', function () {
     var defer = Q.defer();
     defer.resolve();
 
     spyOn(childProccessPromise, 'exec').and.returnValue(defer.promise);
     spyOn(start, '_generateRandomId').and.returnValue('foo');
 
-    start.start('foo', '192.168.0.1').then(function () {
+    run(function () {
+      return start.start('foo', '192.168.0.1');
+    });
+
+    run(function () {
       expect(childProccessPromise.exec).toHaveBeenCalledWith('ssh core@192.168.0.1 "cd /tmp && chmod +x foo.sh && ./foo.sh"');
-    
-      done();
     });
   });
 
