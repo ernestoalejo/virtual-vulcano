@@ -17,3 +17,16 @@ gulp.task('test', function () {
     return gulp.src('app/lib/**/*.spec.js')
         .pipe($.jasmine());
 });
+
+gulp.task('lint:jshint', function () {
+    gulp.src('**/*.js')
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('lint:jscs', function () {
+    return gulp.src('**/*.js')
+        .pipe(jscs());
+});
+
+gulp.task('lint', ['lint:jshint','lint:jscs']);
