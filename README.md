@@ -1,5 +1,5 @@
 
-virtual-vulcano
+virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulcano.svg?branch=master)](https://travis-ci.org/ernestoalejo/virtual-vulcano)
 ===============
 
 Aplicacion
