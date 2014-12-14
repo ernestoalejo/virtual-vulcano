@@ -6,7 +6,9 @@
 
 var childProccessPromise = require('child-process-promise'),
     Q = require('q'),
-    run = require('../test/promise-utils').run,
+    promiseUtils = require('../test/promise-utils'),
+    run = promiseUtils.run,
+    iterativePromisesFunc = promiseUtils.iterativePromisesFunc,
     start = require('./start');
 
 
@@ -22,10 +24,7 @@ describe('start', function () {
   });
 
   it('should execute ssh to run the start script', function () {
-    var defer = Q.defer();
-    defer.resolve();
-
-    spyOn(childProccessPromise, 'exec').and.returnValue(defer.promise);
+    spyOn(childProccessPromise, 'exec').and.returnValue(Q());
     spyOn(start, '_generateRandomId').and.returnValue('foo');
 
     run(function () {
@@ -37,6 +36,30 @@ describe('start', function () {
     });
   });
 
-  // TODO(alberto): Test that the second then callback returns a promise with the exec.
+  it('should wait for both commands sequentially before returning', function () {
+    var defers = [
+      Q.defer(),
+      Q.defer(),
+    ];
+    spyOn(childProccessPromise, 'exec').and.callFake(iterativePromisesFunc(defers));
+
+    var spy = jasmine.createSpy();
+    start.start().done(spy);
+
+    run(function () {
+      expect(childProccessPromise.exec.calls.count()).toBe(1);
+      defers[0].resolve();
+    });
+    run(function () {
+      expect(spy).not.toHaveBeenCalled();
+    });
+    run(function () {
+      expect(childProccessPromise.exec.calls.count()).toBe(2);
+      defers[1].resolve();
+    });
+    run(function () {
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 
 });

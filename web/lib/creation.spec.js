@@ -86,7 +86,9 @@ describe('creation', function () {
     run(function () {
       expect(spy).not.toHaveBeenCalled();
     });
-    run(readDefers[1].resolve);
+    run(function () {
+      readDefers[1].resolve();
+    });
     run(function () {
       expect(spy).toHaveBeenCalled();
     });

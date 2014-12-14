@@ -21,7 +21,13 @@ module.exports = {
     var scpCmd = 'scp core@' + ip + ' /web/assets/start.tmpl.sh /tmp/' + id + '.sh';
     return childProccessPromise.exec(scpCmd)
       .then(function () {
-        var sshCmd = 'ssh core@' + ip + ' "cd /tmp && chmod +x ' + id + '.sh && ./' + id + '.sh"';
+        var remote = [
+          'cd /tmp',
+          'chmod +x ' + id + '.sh',
+          './' + id + '.sh',
+        ];
+
+        var sshCmd = 'ssh core@' + ip + ' "' + remote.join(' && ') + '"';
         return childProccessPromise.exec(sshCmd);
       });
   },
