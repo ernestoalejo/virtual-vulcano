@@ -14,6 +14,6 @@ gulp.task('default', function () {
 
 
 gulp.task('test', function () {
-    return gulp.src('lib/**/*test.js')
+    return gulp.src('lib/**/*.spec.js')
         .pipe($.jasmine());
 });
