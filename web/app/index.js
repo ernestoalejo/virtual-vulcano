@@ -6,8 +6,13 @@
 
 var express = require('express');
 
-
 var app = express();
+
+app.get('/clusters', clusters.list);
+app.get('/clusters/:id', clusters.show);
+app.delete('/clusters/:id', clusters.destroy);
+app.get('/clusters', clusters.create);
+app.put('/clusters/:id', clusters.update);
 
 
 app.get('/', function (req, res) {
