@@ -2,7 +2,7 @@
 //Use of this source code is governed by a BSD-style license that
 //can be found in the LICENSE.md file.
 
-"use strict";
+'use strict';
 
 var Cluster = require('../models/clusters'),
     Q = require('q');
@@ -10,7 +10,7 @@ var Cluster = require('../models/clusters'),
 
 module.exports = {
 	list: function (req, res) {
-		Q.nfcall(Cluster.find, {}).then(function (clusters) {});
+		// Q.nfcall(Cluster.find, {}).then(function (clusters) {});
 	},
 
 	show: function (req, res) {
