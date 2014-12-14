@@ -7,7 +7,7 @@
 
 coreos:
   etcd:
-    discovery: https://discovery.etcd.io/<%- id %>
+    discovery: https://discovery.etcd.io/<%- clusterId %>
     addr: $private_ipv4:4001
     peer-addr: $private_ipv4:7001
 

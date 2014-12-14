@@ -8,100 +8,121 @@ var fs = require('fs'),
     Q = require('q'),
     childProccessPromise = require('child-process-promise'),
     _ = require('lodash'),
-    creation = require('./creation');
+    creation = require('./creation'),
+    promiseUtils = require('../test/promise-utils'),
+    run = promiseUtils.run,
+    iterativePromisesFunc = promiseUtils.iterativePromisesFunc;
 
 
 describe('creation', function () {
 
-    it('should check the correct route', function () {
-        spyOn(Q, 'nfcall').and.returnValue(Q.defer().promise);
-
-        creation._checkIfSSHExists();
-        
-        expect(Q.nfcall).toHaveBeenCalledWith(fs.stat, '/root/.ssh/id_rsa');
-    });
-
-    it('should check not generate a new SSH key if one exists before', function (done) {
-        var defer = Q.defer();
-        defer.resolve();
-
-        spyOn(Q, 'nfcall').and.returnValue(defer.promise);
-        spyOn(childProccessPromise, 'exec');
-
-        creation._checkIfSSHExists().fin(function () {
-            expect(childProccessPromise.exec).not.toHaveBeenCalled();
-
-            done();
-        });
-    });
-
-    it('should check generate a new SSH key if there is none', function (done) {
-        var defer = Q.defer();
-        defer.reject();
-
-        spyOn(Q, 'nfcall').and.returnValue(defer.promise);
-        spyOn(childProccessPromise, 'exec');
-
-        creation._checkIfSSHExists().fin(function () {
-            expect(childProccessPromise.exec).toHaveBeenCalledWith('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
-
-            done();
-        });
-    });
-
-    it('should call to _checkIfSSHExists()', function () {
-        spyOn(creation, '_checkIfSSHExists').and.returnValue(Q.defer().promise);
-
-        creation.create();
-
-        expect(creation._checkIfSSHExists).toHaveBeenCalled();
-    });
-
-    it('should load cloud-config template and SSH key', function (done) {
-        var defer = Q.defer();
-        defer.resolve();
-        spyOn(creation, '_checkIfSSHExists').and.returnValue(defer.promise);
-
-        spyOn(Q, 'nfcall').and.returnValue(Q.defer().promise);
-
-        creation.create();
-
-        defer.promise.fin(function () {
-            expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8');
-            expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8');
-
-            done();
-        });
-    });
+  it('should create a new SSH key if there is none', function () {
+    var stat = Q.defer();
+    stat.reject('file does not exists');
+    spyOn(Q, 'nfcall').and.returnValue(stat.promise);
     
-    iit('should load both files before preparing the cloud-config configuration', function (done) {
-        var defer = Q.defer();
-        defer.resolve();
-        spyOn(creation, '_checkIfSSHExists').and.returnValue(defer.promise);
+    spyOn(childProccessPromise, 'exec');
 
-        var readDefers = [
-            Q.defer(), 
-            Q.defer(),
-        ];
-        readDefers[0].resolve();
-
-        spyOn(Q, 'nfcall').and.callFake(function () {
-            return readDefers[Q.nfcall.calls.count() - 1].promise;
+    run(function () {
+      return creation.create()
+        .fail(function () {
+          // ignore the error, the rejection it's on purpose
         });
-
-        var spy = jasmine.createSpy();
-        creation.create().then(spy);
-
-        readDefers[0].promise.done(function () {
-            expect(spy).not.toHaveBeenCalled();
-            readDefers[1].resolve();
-        });
-
-        readDefers[1].promise.done(function () {
-            expect(spy).toHaveBeenCalled();
-            done();
-        });
-            
     });
+
+    run(function () {
+      expect(childProccessPromise.exec).toHaveBeenCalledWith('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
+    });
+  });
+
+  it('should not generate a new SSH key if one exists before', function () {
+    spyOn(Q, 'nfcall').and.returnValue(Q());
+    
+    spyOn(childProccessPromise, 'exec');
+
+    run(creation.create);
+
+    run(function () {
+      expect(childProccessPromise.exec).not.toHaveBeenCalledWith();
+    });
+  });
+
+  it('should read cloud-config template and id_rsa key', function () {
+    spyOn(Q, 'nfcall').and.callFake(function (fn) {
+      if (fn === fs.stat) {
+        return Q();
+      }
+    });
+
+    run(creation.create);
+
+    run(function () {
+      expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8');
+      expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8');
+    });
+  });
+
+  it('should read both files before generating the config', function () {
+    var readDefers = [
+      Q.defer(),
+      Q.defer(),
+    ];
+    var nextReadPromise = iterativePromisesFunc(readDefers);
+    spyOn(Q, 'nfcall').and.callFake(function (fn) {
+      if (fn === fs.stat) {
+        return Q();
+      }
+      if (fn === fs.readFile) {
+        return nextReadPromise();
+      }
+    });
+
+    var spy = jasmine.createSpy();
+    creation.create().done(spy);
+
+    run(function () {
+      readDefers[0].resolve();
+    });
+    run(function () {
+      expect(spy).not.toHaveBeenCalled();
+    });
+    run(readDefers[1].resolve);
+    run(function () {
+      expect(spy).toHaveBeenCalled();
+    });
+  });
+
+  it('should generate the cloud-config template correctly', function () {
+    var readDefers = [
+      Q.defer(),
+      Q.defer(),
+    ];
+    var nextReadPromise = iterativePromisesFunc(readDefers);
+    spyOn(Q, 'nfcall').and.callFake(function (fn) {
+      if (fn === fs.stat) {
+        return Q();
+      }
+      if (fn === fs.readFile) {
+        return nextReadPromise();
+      }
+    });
+
+    readDefers[0].resolve('cloud-config template');
+    readDefers[1].resolve('ssh key');
+
+    spyOn(_, 'template').and.returnValue('template result');
+
+    run(function () {
+      return creation.create('cluster id').then(function (result) {
+        expect(result).toBe('template result');
+      });
+    });
+    run(function () {
+      expect(_.template).toHaveBeenCalledWith('cloud-config template', {
+        clusterId: 'cluster id',
+        sshKey: 'ssh key',
+      });
+    });
+  });
 
 });

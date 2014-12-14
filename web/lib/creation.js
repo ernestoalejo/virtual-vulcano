@@ -11,30 +11,27 @@ var fs = require('fs'),
 
 
 module.exports = {
-    _checkIfSSHExists: function () {
-        return Q.nfcall(fs.stat, '/root/.ssh/id_rsa')
-            .fail(function () {
-                return childProccessPromise.exec('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
-            });
-    },
 
-    create: function (clusterId) {
-        return this._checkIfSSHExists()
-            .then(function () {
-                return Q.all([
-                    Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8'),
-                    Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8'),
-                ]);
-            })
-            .then(function (result) {
-                var template = result[0];
-                var sshKey = result[1];
+  create: function (clusterId) {
+    return Q.nfcall(fs.stat, '/root/.ssh/id_rsa')
+      .fail(function () {
+        return childProccessPromise.exec('ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa');
+      })
+      .then(function () {
+        return Q.all([
+          Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8'),
+          Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8'),
+        ]);
+      })
+      .then(function (result) {
+        var template = result[0];
+        var sshKey = result[1];
 
-                return _.template(template, {
-                    'id': clusterId,
-                    'sshKey': sshKey,
-                });
-            });
-    }, 
+        return _.template(template, {
+          clusterId: clusterId,
+          sshKey: sshKey,
+        });
+      });
+  }, 
 
 };
