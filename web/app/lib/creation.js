@@ -19,7 +19,7 @@ module.exports = {
       })
       .then(function () {
         return Q.all([
-          Q.nfcall(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8'),
+          Q.nfcall(fs.readFile, '/web/app/assets/cloud-config.tmpl.yml', 'utf-8'),
           Q.nfcall(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8'),
         ]);
       })
@@ -35,3 +35,5 @@ module.exports = {
   },
 
 };
+
+
