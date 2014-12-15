@@ -10,20 +10,22 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Virtual Vulcano</a>
-        </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="clusters">Clústeres</a></li>
-            <li><a href="machine">Máquinas</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Virtual Vulcano</a>
+      </div>
+
+      <div id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="clusters">Clústeres</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div ui-view autoscroll="true"></div>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ var Cluster = require('../models/clusters'),
 
 
 module.exports = {
+
 	list: function (req, res) {
 		// Q.nfcall(Cluster.find, {}).then(function (clusters) {});
 	},
@@ -24,5 +25,6 @@ module.exports = {
 
 	update: function (req, res) {
 	},
+	
 };
 
