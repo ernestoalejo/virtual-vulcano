@@ -4,19 +4,19 @@
 
 'use strict';
 
-var Cluster = require('../models/clusters'),
+var Cluster = require('../models/cluster'),
     Q = require('q');
-
 
 module.exports = {
 	list: function (req, res) {
+		Q.nfcall(Cluster.find, {});
 		// Q.nfcall(Cluster.find, {}).then(function (clusters) {});
 	},
 
 	show: function (req, res) {
 	},
 
-	destroy: function (req, res) {
+	destroy: function (req, res) {	
 	},
 
 	create:function (req, res) {
@@ -25,4 +25,3 @@ module.exports = {
 	update: function (req, res) {
 	},
 };
-

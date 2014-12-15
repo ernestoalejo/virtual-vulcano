@@ -4,6 +4,8 @@
 
 'use strict';
 
+var mongoose = require('mongoose');
+
 
 var ClusterSchema = mongoose.Schema ({
    clusterId: {type: String, required: true}, 
