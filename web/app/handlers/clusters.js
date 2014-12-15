@@ -4,7 +4,7 @@
 
 'use strict';
 
-var Cluster = require('../models/clusters'),
+var Cluster = require('../models/cluster'),
     Q = require('q');
 
 
@@ -25,6 +25,6 @@ module.exports = {
 
 	update: function (req, res) {
 	},
-	
+
 };
 

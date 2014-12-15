@@ -32,6 +32,6 @@ module.exports = {
           sshKey: sshKey,
         });
       });
-  }, 
+  },
 
 };

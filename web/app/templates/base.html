@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
 
 	<meta charset="utf-8">
   
   <title>Virtual Vulcano</title>
 
+  <base href="/">
+
   <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/dist/css/bootstrap.css">
+  
+  <link rel="stylesheet" type="text/css" href="/static/styles/core/body.css">
 
 </head>
 <body>
@@ -25,7 +29,21 @@
     </div>
   </nav>
 
-  <div ui-view autoscroll="true"></div>
+  <div class="container">
+    <div ui-view autoscroll="true"></div>
+  </div>
+
+  <script src="/static/vendor/jquery/dist/jquery.js"></script>
+  <script src="/static/vendor/angular/angular.js"></script>
+  <script src="/static/vendor/angular-messages/angular-messages.js"></script>
+  <script src="/static/vendor/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/static/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/static/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+  <script src="/static/scripts/app.js"></script>
+
+  <script src="/static/scripts/clusters/clusters.js"></script>
+  <script src="/static/scripts/dashboard/dashboard.js"></script>
 
 </body>
 </html>

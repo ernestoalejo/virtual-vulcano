@@ -9,6 +9,7 @@ var crypto = require('crypto'),
 
 
 module.exports = {
+
   _generateRandomId: function () {
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
@@ -31,6 +32,7 @@ module.exports = {
         return childProccessPromise.exec(sshCmd);
       });
   },
+
 };
 
 
