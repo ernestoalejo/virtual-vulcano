@@ -10,10 +10,11 @@ var Cluster = require('../models/cluster'),
 module.exports = {
 
 	list: function (req, res) {
-		return Q.nfcall(Cluster.find, {}).then(function (clusters) {});
+		return Q.nfcall(Cluster.find, {});
 	},
 
 	show: function (req, res) {
+		return Q.nfcall(Cluster.findById(req.id));
 	},
 
 	destroy: function (req, res) {	
