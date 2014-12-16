@@ -57,7 +57,7 @@ describe('creation', function () {
     run(creation.create);
 
     run(function () {
-      expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/web/web/assets/cloud-config.tmpl.yml', 'utf-8');
+      expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/web/app/assets/cloud-config.tmpl.yml', 'utf-8');
       expect(Q.nfcall).toHaveBeenCalledWith(fs.readFile, '/root/.ssh/id_rsa.pub', 'utf-8');
     });
   });
