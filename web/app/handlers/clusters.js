@@ -9,18 +9,24 @@ var Cluster = require('../models/cluster'),
 
 module.exports = {
 
-	list: function (req, res) {
+	list: function (req) {
 		return Q.nfcall(Cluster.find, {});
 	},
 
-	show: function (req, res) {
+	show: function (req) {
 		return Q.nfcall(Cluster.findById(req.id));
 	},
 
-	destroy: function (req, res) {	
+	destroy: function (req) {
+		return Q.nfcall(Cluster.remove({_id: req.id}));	
 	},
 
-	create:function (req, res) {
+	create:function (req) {
+		Cluster.clusterId:req.id;
+		Cluster.name:req.name;
+		Cluster.createdAt:req.createdAt;
+		Cluster.updatedAt:req.updatedAt;
+		
 	},
 
 	update: function (req, res) {
