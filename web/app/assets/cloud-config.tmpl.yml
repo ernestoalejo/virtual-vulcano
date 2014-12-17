@@ -16,5 +16,19 @@ coreos:
     - name: fleet.service
       command: start
 
-  ssh_authorized_keys:
-    - ssh-rsa: <%- sshKey %>
+    - name: cmd.service
+      command: start
+      content: |
+        [Unit]
+        Description=command
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=true
+        ExecStart=/usr/bin/pwd
+
+        [Install]
+        WantedBy=local.target
+
+ssh_authorized_keys:
+  - <%- sshKey %>
