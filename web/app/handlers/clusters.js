@@ -5,48 +5,64 @@
 'use strict';
 
 var Cluster = require('../models/cluster'),
-    Q = require('q');
+    Q = require('q'),
+    _ = require('lodash');
+
+
+var fields = ['_id', 'updatedAt', 'createdAt', 'name', 'ip'];
 
 
 module.exports = {
 
 	list: function (req) {
-		return Q.nfcall(Cluster.find, {});
+		return Q.ninvoke(Cluster, 'find', {})
+			.then(function (clusters) {
+				return _.map(clusters, function (cluster) {
+					return _.pick(cluster, fields);
+				});
+			});
 	},
 
-	show: function (req) {
-		return Q.nfcall(Cluster.findById, req.id);
+	show: function (req, res) {
+		return Q.ninvoke(Cluster, 'findById', req.params.id)
+			.fail(function () {
+				res.sendStatus(404);
+			})
+			.then(function (cluster) {
+				return _.pick(cluster, fields);
+			});
 	},
 
 	destroy: function (req) {
-		return Q.nfcall(Cluster.remove, {clusterId: req.id});	
+		return Q.ninvoke(Cluster, 'remove', {_id: req.params.id})
+			.then(function () {
+				return {success: true};
+			});
 	},
 
 	create: function (req) {
-		var model = {
-			clusterId: req.id,
-			name: req.name,
-			ip: req.ip,
-			createdAt: req.createdAt,
-			updatedAt: req.updatedAt
-		};
-		return Q.nfcall(Cluster.save, model);
+		var cluster = new Cluster({
+			name: req.body.name,
+			ip: req.body.ip,
+		});
+
+		return Q.ninvoke(cluster, 'save')
+			.then(function () {
+				return {success: true};
+			});
 	},
 
 	update: function (req) {
-		return Q.nfcall(Cluster.findById, req.id)
+		return Q.ninvoke(Cluster, 'findById', req.params.id)
 			.then(function (model) {
-				model = {
-					clusterId: req.id,
-					name: req.name,
-					ip: req.ip,
-					createdAt: req.createdAt,
-					updatedAt: req.updatedAt
-				};
-				return model;
-			})
-			.then(function (model) {
+				model.name = req.body.name;
+				model.ip = req.body.ip;
+				model.updatedAt = Date.now();
+
 				return Q.nfcall(Cluster.save, model);
+			})
+			.then(function () {
+				return {success: true};
 			});
 	},
 };

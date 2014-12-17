@@ -4,36 +4,40 @@
 
 'use strict';
 
+require('./models/database');
+
 var express = require('express'),
     clusters = require('./handlers/clusters'),
     base = require('./handlers/base'),
     ejs = require('ejs'),
     path = require('path'),
-    promised = require('./middlewares/promised');
+    promised = require('./middlewares/promised'),
+    bodyParser = require('body-parser');
 
 
 var app = express();
 
-
+// Register engines
 app.engine('html', ejs.renderFile);
 
-
+// Configurations
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'html');
 
-
+// Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use(bodyParser.json());
 
-
-app.get('/clusters', promised(clusters.list));
-app.get('/clusters/:id', promised(clusters.show));
-app.delete('/clusters/:id', promised(clusters.destroy));
-app.get('/clusters', promised(clusters.create));
-app.put('/clusters/:id', promised(clusters.update));
+// Handlers
+app.get('/api/v1/clusters', promised(clusters.list));
+app.get('/api/v1/clusters/:id', promised(clusters.show));
+app.delete('/api/v1/clusters/:id', promised(clusters.destroy));
+app.post('/api/v1/clusters', promised(clusters.create));
+app.put('/api/v1/clusters/:id', promised(clusters.update));
 
 app.get('/', base.base);
 
-
+// Start server
 app.listen(8080, function () {
   console.log('server listening in http://localhost:8080');
 });

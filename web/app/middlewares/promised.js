@@ -7,7 +7,7 @@
 
 module.exports = function (handler) {
     return function (req, res) {
-        handler(req)
+        handler(req, res)
             .then(function (data) {
                 res.json(data);
             })

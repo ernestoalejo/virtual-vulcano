@@ -7,14 +7,16 @@
 var mongoose = require('mongoose');
 
 
-var ClusterSchema = mongoose.Schema ({
-   clusterId: {type: String, required: true}, 
-   name: {type: String, required: true},
-   ip: {type: String, required: true},
-   createdAt: {type: String, required: true},
-   updatedAt: {type: String, required: true},
-}); 
-
-
-module.exports = mongoose.model('Cluster', ClusterSchema);
-
+module.exports = mongoose.model('Cluster', {
+  clusterId: String,
+  name: String,
+  ip: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
