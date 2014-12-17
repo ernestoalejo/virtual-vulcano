@@ -1,0 +1,11 @@
+
+[Unit]
+Description=command
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/pwd
+
+[Install]
+WantedBy=local.target

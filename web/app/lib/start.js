@@ -5,7 +5,10 @@
 'use strict';
 
 var crypto = require('crypto'),
-    childProccessPromise = require('child-process-promise');
+    childProccessPromise = require('child-process-promise'),
+    fs = require('fs'),
+    _ = require('lodash'),
+    Q = require('q');
 
 
 module.exports = {
@@ -17,10 +20,27 @@ module.exports = {
   },
 
   start: function (service, ip) {
-    var id = this._generateRandomId();
+    var id = this._generateRandomId().substring(0, 8);
 
-    var scpCmd = 'scp core@' + ip + ' /web/assets/start.tmpl.sh /tmp/' + id + '.sh';
-    return childProccessPromise.exec(scpCmd)
+    return Q.nfcall(fs.readFile, 'app/assets/start.tmpl.sh', 'utf-8')
+      .then(function (data) {
+        var contents = _.template(data, {
+          id: id,
+        });
+
+        return Q.nfcall(fs.writeFile, '/tmp/' + id + '.sh', contents);
+      })
+      .then(function () {
+        var scpCmd = 'scp /tmp/' + id + '.sh core@' + ip + ':/tmp/' + id + '.sh';
+        return childProccessPromise.exec(scpCmd);
+      })
+      .then(function () {
+        return Q.nfcall(fs.writeFile, '/tmp/' + id + '.service', service)
+      })
+      .then(function () {
+        var writeFileCmd = 'scp /tmp/' + id + '.service core@' + ip + ':/tmp/' + id + '.service';
+        return childProccessPromise.exec(writeFileCmd);
+      })
       .then(function () {
         var remote = [
           'cd /tmp',
