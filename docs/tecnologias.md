@@ -19,6 +19,12 @@ los límites de uso gratuito que se establecen para todas las cuentas.
 
 
 
+[Azure](http://azure.microsoft.com/es-es/)
+------------------------------------------
+
+Aprovechando una cuenta gratuita de Azure, hemos desplegado nuestra máquina CoreOS en ella, que se encargará de administrar, encender y apagar contenedores dentro de los clústeres, en este enlace podemos ver como hemos creado la máquina en [Azure](instalation.md)  
+
+
 [Docker](https://www.docker.com/)
 ---------------------------------
 
@@ -36,3 +42,29 @@ Para hacer más sencillo el desarrollo del instalador online hemos tomado la dec
 1. Las pocas y concretas llamadas a nuestra API (endpoints que devuelvan datos concretos y sencillos). Proporcionan datos externos o almacenados que no podemos obtener de otra manera.
 
 2. Una aplicación dinámica que se ejecute en el cliente y que se encargue de las interacciones y de generar las cosas que el cliente necesita.
+
+[NodeJS](http://nodejs.org/)
+-----------------------------------
+
+Hemos decidido utilizar nodejs como framework porque puede utilizar una amplia variedad de plugins que nos van a facilitar el desarrollo. Además, este, nos proporciona una arquitectura orientada a eventos y optimiza el rendimiento y la escalabilidad de la aplicación.
+
+Nodejs tambien nos permite utilizar el gestor de paquetes npm el cual describiremos más adelante.
+
+[Npm](http://nodejs.org/)
+-----------------------------------
+
+Utilizamos npm que es un gestor de paquetes para facilitarnos la compilación, instalación y actualización de módulos así como la gestión de las dependencias.
+Alguno de los módulos que utilizamos son:
+
+1. [Express](http://expressjs.com/) Web framework sencillo y rapido para node.js.
+
+2. [Mongoose](http://mongoosejs.com/) Herramienta de modelado de objetos de MongoDB para trabajar de forma asíncrona.
+
+3. [Bower](http://bower.io/): Gestor de paquetes web.
+
+4. [Gulp](http://gulpjs.com/): Gestor para automatizar tareas comunes de un sitio web, como los tests.
+
+5. [Lodash](https://lodash.com/): Una biblioteca de utilidades que ofrece consistencia, personalización, rendimiento, y extras.
+
+6. [Q](https://www.npmjs.com/package/q): Herramienta para hacer promesas asíncronas en JavaScript.
+
