@@ -4,7 +4,13 @@
 # Use of this source code is governed by a BSD-style license that
 # can be found in the LICENSE.md file.
 
-set -e
-set -u
+cd /web/app
 
-docker run --privileged=true -v $(pwd):/web -i -p 8080:8080 -t virtualvulcano/web /web/cmd/local.sh
+while [[ 1 ]]; do
+  node index.js
+  sleep 3
+  
+    echo
+  echo "-----------------------------------------"
+  echo
+done

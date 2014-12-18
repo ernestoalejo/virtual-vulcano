@@ -17,4 +17,4 @@ RUN mkdir -p /data/db
 ADD . /web
 
 WORKDIR /web
-CMD ((mongod > /tmp/mongo-logs) &) && bash
+CMD ((mongod > /tmp/mongo-logs) &) && cd app && /web/startup.sh
