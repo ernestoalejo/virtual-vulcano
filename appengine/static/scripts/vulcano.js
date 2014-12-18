@@ -16,7 +16,7 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 		ctrl.loading = true;
 		
 		$q.all([
-			$http.get('/static/assets/cloud-config.tmpl'),
+			$http.get('/static/assets/cloud-config.tmpl.yml'),
 			$http.post('/api/code'),
 		]).then(function (result) {
 			var template = result[0];
