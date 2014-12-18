@@ -19,9 +19,7 @@ module.exports = {
     return crypto.createHash('sha1').update(current_date + random).digest('hex');
   },
 
-  start: function (service, ip) {
-    var id = this._generateRandomId().substring(0, 8);
-
+  _sendStartScript: function (id, ip) {
     return Q.nfcall(fs.readFile, 'app/assets/start.tmpl.sh', 'utf-8')
       .then(function (data) {
         var contents = _.template(data, {
@@ -33,7 +31,13 @@ module.exports = {
       .then(function () {
         var scpCmd = 'scp /tmp/' + id + '.sh core@' + ip + ':/tmp/' + id + '.sh';
         return childProccessPromise.exec(scpCmd);
-      })
+      });
+  },
+
+  start: function (service, ip) {
+    var id = this._generateRandomId().substring(0, 8);
+
+    return this._sendStartScript(id, ip)    
       .then(function () {
         return Q.nfcall(fs.writeFile, '/tmp/' + id + '.service', service)
       })
