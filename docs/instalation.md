@@ -64,6 +64,28 @@ derecha.
 
 ![Crear máquina](images/install.png "Crear máquina")
 
+Creación de cloud-config
+------------------------
+
+Para la configuración de la máquina, se necesita un fichero cloud-config, el cual
+vamos a descargar de una página especifica para ello.
+
+Entramos en la pagina web http://virtual-vulcano.appspot.com/.
+Una vez en ella, se hace clic en el botón Generar, que devuelve un cloud-config
+preparado. 
+
+![Cloud-config](images/cloud-config.png "Cloud-config")
+
+Una vez obtenido, lo copiamos y lo almacenamos en un gist. Un gist lo podemos generar
+entrando en la pagina https://gist.github.com/.
+En la descripcion se pone cloud-config como titulo y en el texto copiamos el 
+cloud-config dado anteriormente. Despues, hacemos clic en create secret gist.
+
+![Gists](images/gists.png "Gists")
+
+Una vez creado el gist, le damos al boton Raw y se nos abrirá una ventana nueva.
+De dicha ventana, copiamos la dirección.
+
 
 
 
