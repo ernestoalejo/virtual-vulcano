@@ -25,7 +25,7 @@ Alpha y clicamos en siguiente.
 Una vez elegido el sistema, le indicamos el nombre de la máquina, por ejemplo, 
 virtualvulcano. En el tipo de capa, se selecciona Basic, con tamaño A0(nucleo 
 compartido, 768 MB de memoria). Como nombre de usuario, lo normal es asignarle
-core como nombre de usuario.
+**core** como nombre de usuario.
 Le indicamos que no hay que introducir ninguna contraseña, tan solo hay que cargar
 una clave ssh compatible.
 
@@ -40,7 +40,7 @@ openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCe
 ```
 
 Una vez que se tenga la clave ssh en el formato .pem, se lo añadimos en el apartado
-"Certificado" y le damos en siguiente.
+**"Certificado"** y le damos en siguiente.
 
 ![Configuracion de la maquina](images/conf.png "Configuracion de la maquina")
 
@@ -50,11 +50,14 @@ Tambien hay creada una cuenta de almacenamiento, que hay que indicarla cuando se
 pide. 
 En la parte de conjunto de disponibilidad, no se seleciona nada.
 Por ultimo en esta parte, dejamos abierto para ssh el puerto 22, tanto público como
-privado. Esta opcion viene puesta por defecto.
+privado. Esta opcion viene puesta por defecto, pero además tendremos que añadir el siguiente puerto: 
+- Nombre: **http** 
+- Puerto publico: **80** 
+- Puerto privado: **80**
 
-Una vez esto, le damos a siguiente.
+Debería de quedar como en la siguiente imagen.
 
-![Configuracion de la maquina](images/conf2.png "Configuracion de la maquina")
+![Configuracion de la maquina](images/configurar-puertos.png "Configuracion de los puertos de la maquina")
 
 En el ultimo paso, dejamos seleccionado el apartado Instalar el agente de la 
 máquina virtual.
@@ -103,11 +106,11 @@ hay que introducir el siguiente comando, con la direccion del gist creado anteri
 que en este caso es https://gist.githubusercontent.com/albertomoreno/4993e84419ff34c73472/raw/196c6d98969a44419cfcfaa64c0cdfe0908071fd/gistfile1.txt:
 
 ```bash 
-coreos-cloudinit --from-url="https://gist.githubusercontent.com/albertomoreno/4993e84419ff34c73472/raw/196c6d98969a44419cfcfaa64c0cdfe0908071fd/gistfile1.txt"
+sudo coreos-cloudinit --from-url="https://gist.githubusercontent.com/albertomoreno/4993e84419ff34c73472/raw/196c6d98969a44419cfcfaa64c0cdfe0908071fd/gistfile1.txt"
 ```
 ![cloud-init](images/cloud-init.png "cloud-init")
 
 Una vez terminada la ejecución, nos vamos al navegador e introducimos la direccion
-ip de la máquina y aparecerá la página de monitorización de clusters.
+ip de la máquina y aparecerá la página de monitorización de clusters en nuestro caso será acceder a 137.117.145.176
 
 
