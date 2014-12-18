@@ -86,6 +86,28 @@ cloud-config dado anteriormente. Despues, hacemos clic en create secret gist.
 Una vez creado el gist, le damos al boton Raw y se nos abrirá una ventana nueva.
 De dicha ventana, copiamos la dirección.
 
+Configuración de la máquina con cloud-config
+--------------------------------------------
 
+Ahora, entramos en la máquina desde la consola. Para ello, hay que mirar en 
+azure, la dirección de la máquina virtual, que en este caso es 137.117.145.176.
+
+Para acceder a la maquina virtual, introducimos el siguiente comando: 
+```bash 
+ssh core@137.117.145.176
+```
+![ssh](images/ssh.png "ssh")
+
+Una vez dentro, para asignar a la configuración de la maquina el cloud-config, 
+hay que introducir el siguiente comando, con la direccion del gist creado anteriormente,
+que en este caso es https://gist.githubusercontent.com/albertomoreno/4993e84419ff34c73472/raw/196c6d98969a44419cfcfaa64c0cdfe0908071fd/gistfile1.txt:
+
+```bash 
+coreos-cloudinit --from-url="https://gist.githubusercontent.com/albertomoreno/4993e84419ff34c73472/raw/196c6d98969a44419cfcfaa64c0cdfe0908071fd/gistfile1.txt"
+```
+![cloud-init](images/cloud-init.png "cloud-init")
+
+Una vez terminada la ejecución, nos vamos al navegador e introducimos la direccion
+ip de la máquina y aparecerá la página de monitorización de clusters.
 
 
