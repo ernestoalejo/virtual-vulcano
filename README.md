@@ -19,6 +19,8 @@ Documentacion
 
 [Arquitectura de la aplicación](docs/arquitectura.md)
 
+[Instalación de la máquina](docs/instalation.md)
+
 
 Licencia
 -------------
