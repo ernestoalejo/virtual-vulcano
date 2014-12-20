@@ -2,7 +2,7 @@
 virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulcano.svg?branch=master)](https://travis-ci.org/ernestoalejo/virtual-vulcano)
 ===============
 
-<p align="center"><img src="https://github.com/ernestoalejo/virtual-vulcano/blob/master/LOGO.png"></p>
+<p align="center"><img src="https://github.com/ernestoalejo/virtual-vulcano/blob/master/logo.png"></p>
 
 Aplicacion
 ----------
