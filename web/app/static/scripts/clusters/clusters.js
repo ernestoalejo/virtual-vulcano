@@ -7,7 +7,7 @@
 
 app.config(function ($stateProvider) {
   $stateProvider.state('clusters/list', {
-    templateUrl: '/static/partials/clusters/list.html',
+    templateUrl: '/static/scripts/clusters/list.html',
     url: '/clusters',
     controller: 'clusters.ListCtrl',
     controllerAs: 'ctrl',

@@ -7,7 +7,7 @@
 
 app.config(function ($stateProvider) {
   $stateProvider.state('dashboard', {
-    templateUrl: '/static/partials/dashboard/dashboard.html',
+    templateUrl: '/static/scripts/dashboard/dashboard.html',
     url: '/',
     controller: 'dashboard.Ctrl',
     controllerAs: 'ctrl',
