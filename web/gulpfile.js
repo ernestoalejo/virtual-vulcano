@@ -33,3 +33,12 @@ gulp.task('lint:jscs', function () {
 
 
 gulp.task('lint', ['lint:jshint','lint:jscs']);
+
+
+gulp.task('serve', function () {
+  $.nodemon({
+    script: 'app/index.js',
+    ext: 'html js css',
+    ignore: ['node_modules'],
+  });
+});
