@@ -4,6 +4,10 @@
  * can be found in the LICENSE.md file.
  */
 
+.btn {
+  border-radius: 0;
+}
+
 .btn [class^="fa-"], .btn [class*=" fa-"], .nav [class^="fa-"], .nav [class*=" fa-"] {
   margin-right: 7px;
 }
