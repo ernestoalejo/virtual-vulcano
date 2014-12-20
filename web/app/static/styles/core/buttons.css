@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) 2014 The Virtual Vulcano authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that
+ * can be found in the LICENSE.md file.
+ */
+
+.btn [class^="fa-"], .btn [class*=" fa-"], .nav [class^="fa-"], .nav [class*=" fa-"] {
+  margin-right: 7px;
+}
+
+.btn-icon-only > [class^="fa-"], .btn-icon-only > [class*=" fa-"], li.icon-only > [class^="fa-"], li.icon-only > [class*=" fa-"] {
+  margin-right: 0px;
+}
+.btn-icon-only > a > [class^="fa-"], .btn-icon-only > [class*=" fa-"], li.icon-only > a > [class^="fa-"], li.icon-only > [class*=" fa-"] {
+  margin-right: 0px;
+}
+
+.btn-icon-right > [class^="fa-"], .btn-icon-right > [class*=" fa-"], li.icon-right > [class^="fa-"], li.icon-right > [class*=" fa-"] {
+  margin-right: 0px;
+  margin-left: 7px;
+}
+.btn-icon-right > a > [class^="fa-"], .btn-icon-right > [class*=" fa-"], li.icon-right > a > [class^="fa-"], li.icon-right > [class*=" fa-"] {
+  margin-right: 0px;
+  margin-left: 7px;
+}
