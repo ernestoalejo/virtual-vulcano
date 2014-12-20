@@ -3,3 +3,18 @@
 // can be found in the LICENSE.md file.
 
 'use strict';
+
+
+app.config(function ($stateProvider) {
+  $stateProvider.state('clusters/list', {
+    templateUrl: '/static/partials/clusters/list.html',
+    url: '/clusters',
+    controller: 'clusters.ListCtrl',
+    controllerAs: 'ctrl',
+  });
+});
+
+
+app.controller('clusters.ListCtrl', function () {
+  var ctrl = this;
+});

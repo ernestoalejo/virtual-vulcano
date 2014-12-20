@@ -36,6 +36,9 @@ app.post('/api/v1/clusters', promised(clusters.create));
 app.put('/api/v1/clusters/:id', promised(clusters.update));
 
 app.get('/', base.base);
+app.get('/:s1', base.base);
+app.get('/:s1/:s2', base.base);
+app.get('/:s1/:s2/:s3', base.base);
 
 // Start server
 app.listen(8080, function () {
