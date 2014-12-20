@@ -6,7 +6,9 @@
 
 var Cluster = require('../models/cluster'),
     Q = require('q'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    creation = require('../lib/creation'),
+    clusterId = require('../lib/cluster-id');
 
 
 var fields = ['_id', 'updatedAt', 'createdAt', 'name', 'ip'];
@@ -41,12 +43,18 @@ module.exports = {
 	},
 
 	create: function (req) {
-		var cluster = new Cluster({
-			name: req.body.name,
-			ip: req.body.ip,
-		});
+		console.log(req.body);
+		
+		return clusterId.fetch()
+			.then(function (id) {
+				var cluster = new Cluster({
+					clusterId: id,
+					name: req.body.name,
+					ip: req.body.ip,
+				});
 
-		return Q.ninvoke(cluster, 'save')
+				return Q.ninvoke(cluster, 'save');
+			})
 			.then(function () {
 				return {success: true};
 			});
