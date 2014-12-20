@@ -1,9 +1,44 @@
 
 <div class="page-header">
   <a class="btn btn-success pull-right" ui-sref="clusters/create">
-    <i class="fa fa-plus"></i>
-    New cluster
+    <i class="fa fa-plus"></i> New cluster
   </a>
 
   <h1>Clusters</h1>
 </div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Cluster name</th>
+      <th>IP</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody ng-show="ctrl.clusters && !ctrl.clusters.length">
+    <tr>
+      <td cols="4">
+        There are no clusters created in the app
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr ng-repeat="cluster in ctrl.clusters">
+      <td>{{ cluster._id }}</td>
+      <td>{{ cluster.name }}</td>
+      <td>{{ cluster.ip }}</td>
+      <td class="table-buttons">
+        <a ui-sref="clusters/show({id: cluster._id})" class="btn btn-sm btn-default">
+          <i class="fa fa-eye"></i> View cluster
+        </a>
+
+        <a ui-sref="clusters/edit({id: cluster._id})" class="btn btn-sm btn-default">
+          <i class="fa fa-pencil"></i> Edit cluster
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

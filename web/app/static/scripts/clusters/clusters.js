@@ -20,8 +20,12 @@ app.config(function ($stateProvider) {
   });
 });
 
-app.controller('clusters.ListCtrl', function () {
+app.controller('clusters.ListCtrl', function (Cluster) {
   var ctrl = this;
+
+  Cluster.list().then(function (clusters) {
+    ctrl.clusters = clusters;
+  });
 });
 
 app.controller('clusters.CreateCtrl', function (Cluster, $state) {

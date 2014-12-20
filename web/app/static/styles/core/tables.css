@@ -1,0 +1,13 @@
+
+.table th {
+  color: #777;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-bottom: 1px solid #e7e7e7 !important;
+  font-size: 13px;
+}
+
+td, th {
+  vertical-align: middle !important;
+}
+
