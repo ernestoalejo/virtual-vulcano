@@ -15,4 +15,5 @@ debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
 
 application = webapp2.WSGIApplication([
   ('/api/code', 'virtual.handlers.code_handler.CodeHandler'),
+  ('/cloud-config/(\w+)', 'virtual.handlers.generate_cloud_config_handler.GenetareCloudConfigHandler'),
 ], debug=debug)

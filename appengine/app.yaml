@@ -31,6 +31,9 @@ handlers:
 - url: /api/.*
   script: server.application
 
+- url: /cloud-config/.*
+  script: server.application
+
 
 skip_files:
 - old
