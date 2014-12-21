@@ -29,10 +29,11 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 
 // Handlers
+app.delete('/api/v1/clusters/:id', promised(clusters.destroy));
 app.get('/api/v1/clusters', promised(clusters.list));
 app.get('/api/v1/clusters/:id', promised(clusters.show));
-app.delete('/api/v1/clusters/:id', promised(clusters.destroy));
 app.post('/api/v1/clusters', promised(clusters.create));
+app.post('/api/v1/clusters/:id/run', promised(clusters.run));
 app.put('/api/v1/clusters/:id', promised(clusters.update));
 
 app.get('/', base.base);

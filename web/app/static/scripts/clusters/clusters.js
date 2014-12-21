@@ -18,6 +18,13 @@ app.config(function ($stateProvider) {
     controller: 'clusters.CreateCtrl',
     controllerAs: 'ctrl',
   });
+
+  $stateProvider.state('clusters/run', {
+    templateUrl: '/static/scripts/clusters/run.html',
+    url: '/clusters/:id/run',
+    controller: 'clusters.RunCtrl',
+    controllerAs: 'ctrl',
+  });
 });
 
 app.controller('clusters.ListCtrl', function (Cluster) {
@@ -35,6 +42,18 @@ app.controller('clusters.CreateCtrl', function (Cluster, $state) {
 
   ctrl.submit = function () {
     return Cluster.create(ctrl.data).then(function () {
+      $state.go('clusters/list');
+    });
+  };
+});
+
+app.controller('clusters.RunCtrl', function (Cluster, $stateParams, $state) {
+  var ctrl = this;
+
+  ctrl.data = {};
+
+  ctrl.submit = function () {
+    return Cluster.run($stateParams.id, ctrl.data).then(function () {
       $state.go('clusters/list');
     });
   };

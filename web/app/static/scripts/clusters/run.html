@@ -1,0 +1,19 @@
+
+<div class="page-header">
+  <h1>Run job in a cluster</h1>
+</div>
+
+<ajax-form submit="ctrl.submit()">
+  <form-group name="service">
+    <label for="service" class="control-label">Service file</label>
+    <textarea name="service" id="service" class="form-control" rows="10" ng-model="ctrl.data.service" required minlength="10"></textarea>
+
+    <form-errors>
+      <form-error when="required">The service code is required</form-error>
+      <form-error when="minlength">The service is too short to be valid</form-error>
+    </form-errors>
+  </form-group>
+
+  <form-submit>Run job</form-submit>
+</ajax-form>
+

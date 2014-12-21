@@ -35,16 +35,17 @@ module.exports = {
 			});
 	},
 
-	destroy: function (req) {
+	destroy: function (req, res) {
 		return Q.ninvoke(Cluster, 'remove', {_id: req.params.id})
+			.fail(function () {
+				res.sendStatus(404);
+			})
 			.then(function () {
 				return {success: true};
 			});
 	},
 
 	create: function (req) {
-		console.log(req.body);
-		
 		return clusterId.fetch()
 			.then(function (id) {
 				var cluster = new Cluster({
@@ -60,8 +61,11 @@ module.exports = {
 			});
 	},
 
-	update: function (req) {
+	update: function (req, res) {
 		return Q.ninvoke(Cluster, 'findById', req.params.id)
+			.fail(function () {
+				res.sendStatus(404);
+			})
 			.then(function (model) {
 				model.name = req.body.name;
 				model.ip = req.body.ip;
@@ -73,4 +77,15 @@ module.exports = {
 				return {success: true};
 			});
 	},
+
+	run: function (req, res) {
+		return Q.ninvoke(Cluster, 'findById', req.params.id)
+			.fail(function () {
+				res.sendStatus(404);
+			})
+			.then(function (model) {
+				console.log('run', model, req.body.service);
+			});
+	},
+
 };

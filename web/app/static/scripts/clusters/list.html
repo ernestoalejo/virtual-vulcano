@@ -31,10 +31,12 @@
       <td>{{ cluster.name }}</td>
       <td>{{ cluster.ip }}</td>
       <td class="table-buttons">
+        <a ui-sref="clusters/run({id: cluster._id})" class="btn btn-sm btn-primary">
+          <i class="fa fa-code"></i> Run job
+        </a>
         <a ui-sref="clusters/show({id: cluster._id})" class="btn btn-sm btn-default">
           <i class="fa fa-eye"></i> View cluster
         </a>
-
         <a ui-sref="clusters/edit({id: cluster._id})" class="btn btn-sm btn-default">
           <i class="fa fa-pencil"></i> Edit cluster
         </a>

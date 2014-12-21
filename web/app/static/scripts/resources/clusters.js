@@ -10,5 +10,9 @@ app.factory('Cluster', function ($http) {
     create: function (data) {
       return $http.post('/api/v1/clusters', data);
     },
+
+    run: function (id, data) {
+      return $http.post('/api/v1/clusters/' + id + '/run', data);
+    },
   };
 });
