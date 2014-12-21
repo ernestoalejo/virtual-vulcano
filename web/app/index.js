@@ -12,7 +12,8 @@ var express = require('express'),
     ejs = require('ejs'),
     path = require('path'),
     promised = require('./middlewares/promised'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    sshConfig = require('./lib/ssh-config');
 
 
 var app = express();
@@ -41,6 +42,9 @@ app.get('/', base.base);
 app.get('/:s1', base.base);
 app.get('/:s1/:s2', base.base);
 app.get('/:s1/:s2/:s3', base.base);
+
+// Config SSH settings on startup
+sshConfig.startup().done();
 
 // Start server
 app.listen(8080, function () {
