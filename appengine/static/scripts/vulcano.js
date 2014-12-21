@@ -16,13 +16,9 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 		ctrl.loading = true;
 		
 		$q.all([
-			$http.get('/static/assets/cloud-config.tmpl.yml'),
 			$http.post('/api/code'),
 		]).then(function (result) {
-			var template = result[0];
-			var code = result[1];
-
-			ctrl.cloudConfig = template.data.replace('${TOKEN}', code.data.id);
+			ctrl.cloudConfig = result[0].data.replace('\n', '<br>');
 		});
 	};
 });
