@@ -8,6 +8,7 @@ var Cluster = require('../models/cluster'),
     Q = require('q'),
     _ = require('lodash'),
     creation = require('../lib/creation'),
+    start = require('../lib/start'),
     clusterId = require('../lib/cluster-id');
 
 
@@ -83,8 +84,8 @@ module.exports = {
 			.fail(function () {
 				res.sendStatus(404);
 			})
-			.then(function (model) {
-				console.log('run', model, req.body.service);
+			.then(function (cluster) {
+				return start.start(req.body.service, cluster.ip);
 			});
 	},
 
