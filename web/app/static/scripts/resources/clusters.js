@@ -14,5 +14,9 @@ app.factory('Cluster', function ($http) {
     run: function (id, data) {
       return $http.post('/api/v1/clusters/' + id + '/run', data);
     },
+
+    install: function (id) {
+      return $http.get('/api/v1/clusters/' + id + '/install');
+    },
   };
 });

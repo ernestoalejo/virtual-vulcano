@@ -25,6 +25,13 @@ app.config(function ($stateProvider) {
     controller: 'clusters.RunCtrl',
     controllerAs: 'ctrl',
   });
+
+  $stateProvider.state('clusters/install', {
+    templateUrl: '/static/scripts/clusters/install.html',
+    url: '/clusters/:id/install',
+    controller: 'clusters.InstallCtrl',
+    controllerAs: 'ctrl',
+  });
 });
 
 app.controller('clusters.ListCtrl', function (Cluster) {
@@ -57,4 +64,12 @@ app.controller('clusters.RunCtrl', function (Cluster, $stateParams, $state) {
       $state.go('clusters/list');
     });
   };
+});
+
+app.controller('clusters.InstallCtrl', function (Cluster, $stateParams, $state) {
+  var ctrl = this;
+
+  Cluster.install($stateParams.id).then(function (code) {
+    ctrl.code = code.cloudConfig;
+  });
 });

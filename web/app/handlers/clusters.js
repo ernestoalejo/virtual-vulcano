@@ -89,4 +89,19 @@ module.exports = {
 			});
 	},
 
+	install: function (req) {
+		return Q.ninvoke(Cluster, 'findById', req.params.id)
+			.fail(function () {
+				res.sendStatus(404);
+			})
+			.then(function (cluster) {
+				return creation.create(cluster.clusterId);
+			})
+			.then(function (cloudConfig) {
+				return {
+					cloudConfig: cloudConfig,
+				};
+			});
+	},
+
 };

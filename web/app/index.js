@@ -32,6 +32,7 @@ app.use(bodyParser.json());
 app.delete('/api/v1/clusters/:id', promised(clusters.destroy));
 app.get('/api/v1/clusters', promised(clusters.list));
 app.get('/api/v1/clusters/:id', promised(clusters.show));
+app.get('/api/v1/clusters/:id/install', promised(clusters.install));
 app.post('/api/v1/clusters', promised(clusters.create));
 app.post('/api/v1/clusters/:id/run', promised(clusters.run));
 app.put('/api/v1/clusters/:id', promised(clusters.update));
