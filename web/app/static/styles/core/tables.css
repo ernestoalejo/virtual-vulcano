@@ -11,3 +11,11 @@ td, th {
   vertical-align: middle !important;
 }
 
+.table-buttons {
+  white-space: nowrap;
+}
+  
+.table-buttons .btn {
+  margin-right: 15px;
+}
+    
