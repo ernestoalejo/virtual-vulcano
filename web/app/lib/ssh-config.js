@@ -4,7 +4,9 @@ var fs = require('fs'),
     mkdirp = require('mkdirp'),
     Q = require('q');
 
+
 module.exports = {
+  
   startup: function () {
     return Q.nfcall(mkdirp, '/root/.ssh')
       .then(function () {
@@ -14,4 +16,5 @@ module.exports = {
         return Q.nfcall(fs.writeFile, '/root/.ssh/config', sshConfig);
       });
   },
+
 };

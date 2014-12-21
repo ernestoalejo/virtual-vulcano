@@ -18,6 +18,7 @@ var express = require('express'),
 
 var app = express();
 
+
 // Register engines
 app.engine('html', ejs.renderFile);
 
@@ -43,8 +44,10 @@ app.get('/:s1', base.base);
 app.get('/:s1/:s2', base.base);
 app.get('/:s1/:s2/:s3', base.base);
 
+
 // Config SSH settings on startup
 sshConfig.startup().done();
+
 
 // Start server
 app.listen(8080, function () {
