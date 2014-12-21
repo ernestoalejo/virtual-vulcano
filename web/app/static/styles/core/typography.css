@@ -1,0 +1,10 @@
+
+td.no-elems, p.no-elems {
+  text-align: center !important;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  color: #aaa;
+  font-size: 16px;
+  font-style: italic;
+  background: white;
+}
