@@ -2,7 +2,7 @@
 virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulcano.svg?branch=master)](https://travis-ci.org/ernestoalejo/virtual-vulcano)
 ===============
 
-<p align="center"><img src="https://github.com/ernestoalejo/virtual-vulcano/blob/master/logo.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/logo.png"></p>
 
 Aplicacion
 ----------
@@ -13,13 +13,12 @@ Aplicacion
 Documentacion
 -------------
 
-[Planteamiento del proyecto](docs/planteamiento.md)
-
-[Tecnologias utilizadas](docs/technologies.md)
-
-[Arquitectura de la aplicación](docs/arquitectura.md)
-
-[Instalación de la máquina](docs/instalation.md)
+ * [Planteamiento del proyecto](docs/planteamiento.md)
+ * Estructura del proyecto:
+     * [Tecnologias utilizadas](docs/technologies.md)
+     * [Arquitectura general](docs/arquitecture.md)
+ * Instalación:
+     * [Instalación en Azure](docs/azure-setup.md)
 
 
 Licencia
