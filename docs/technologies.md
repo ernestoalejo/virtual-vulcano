@@ -22,7 +22,8 @@ los límites de uso gratuito que se establecen para todas las cuentas.
 [Azure](http://azure.microsoft.com/es-es/)
 ------------------------------------------
 
-Aprovechando una cuenta gratuita de Azure, hemos desplegado nuestra máquina CoreOS en ella, que se encargará de administrar, encender y apagar contenedores dentro de los clústeres, en este enlace podemos ver como hemos creado la máquina en [Azure](instalation.md)  
+Como ejemplo de despliegue del proyecto estamos usando servidores de Azure por tener una cuenta gratuita que podemos usar para las pruebas.
+
 
 
 [Docker](https://www.docker.com/)
@@ -43,28 +44,30 @@ Para hacer más sencillo el desarrollo del instalador online hemos tomado la dec
 
 2. Una aplicación dinámica que se ejecute en el cliente y que se encargue de las interacciones y de generar las cosas que el cliente necesita.
 
-[NodeJS](http://nodejs.org/)
+
+
+[Bower](http://bower.io/)
+-------------------------
+
+Gestor de paquetes para crear y desarrollar aplicaciones web. Nos permite instalar y mantener la lista de librerías del cliente de forma sencilla.
+
+
+
+[MongoDB](http://www.mongodb.org/) y [Mongoose](http://mongoosejs.com/)
+-----------------------------------------------------------------------
+
+Por su simplicidad, especialmente al interactuar con Javascript; y la gran cantidad de cosas útiles que ofrece MongoDB nos hemos decidido a usarlo para almacenar los datos del panel de provisionamiento.
+
+
+
+[Gulp](http://gulpjs.com/)
+--------------------------
+
+Para automatizar tareas de desarrollo y de construcción usamos Gulp que nos permite expresar esos requerimientos de forma explícita y automatizada en un sencillo fichero.
+
+
+
+[Q](https://github.com/kriskowal/q)
 -----------------------------------
 
-Hemos decidido utilizar nodejs como framework porque puede utilizar una amplia variedad de plugins que nos van a facilitar el desarrollo. Además, este, nos proporciona una arquitectura orientada a eventos y optimiza el rendimiento y la escalabilidad de la aplicación.
-
-Nodejs tambien nos permite utilizar el gestor de paquetes npm el cual describiremos más adelante.
-
-[Npm](http://nodejs.org/)
------------------------------------
-
-Utilizamos npm que es un gestor de paquetes para facilitarnos la compilación, instalación y actualización de módulos así como la gestión de las dependencias.
-Alguno de los módulos que utilizamos son:
-
-1. [Express](http://expressjs.com/) Web framework sencillo y rapido para node.js.
-
-2. [Mongoose](http://mongoosejs.com/) Herramienta de modelado de objetos de MongoDB para trabajar de forma asíncrona.
-
-3. [Bower](http://bower.io/): Gestor de paquetes web.
-
-4. [Gulp](http://gulpjs.com/): Gestor para automatizar tareas comunes de un sitio web, como los tests.
-
-5. [Lodash](https://lodash.com/): Una biblioteca de utilidades que ofrece consistencia, personalización, rendimiento, y extras.
-
-6. [Q](https://www.npmjs.com/package/q): Herramienta para hacer promesas asíncronas en JavaScript.
-
+Todo nuestro código Javascript usa el concepto de [promesa](https://promisesaplus.com/) para trabajar con código asíncrono. Esto nos permite realizar los tests unitarios de cada componente de una forma muy sencilla y además componer comportamientos casi sin esfuerzo para realizar cada una de las partes de nuestra aplicación.
