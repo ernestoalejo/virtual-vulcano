@@ -4,10 +4,12 @@
 # Use of this source code is governed by a BSD-style license that
 # can be found in the LICENSE.md file.
 
-cd /web/app
+mongod > /tmp/mongo-logs &
+
+cd /web
 
 while [[ 1 ]]; do
-  node index.js
+  node app/index.js
   sleep 3
   
     echo
