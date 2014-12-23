@@ -4,11 +4,6 @@ virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulc
 
 <p align="center"><img src="https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/logo.png"></p>
 
-Aplicacion
-----------
-
-[Instalación online](http://virtual-vulcano.appspot.com/)
-
 
 Documentacion
 -------------
@@ -19,6 +14,9 @@ Documentacion
      * [Arquitectura general](docs/arquitecture.md)
  * Instalación:
      * [Instalación en Azure](docs/azure-setup.md)
+     * [Instalador online](http://virtual-vulcano.appspot.com/)
+ * [Documentación para las prácticas de IV](docs/homework.md)
+ * [Servicio de ejemplo](docs/example-service.md)
 
 
 Licencia
