@@ -10,7 +10,7 @@ El énfasis de esta práctica está en la automatización para lanzar la aplicac
 
 Para ver las instrucciones de cómo crear una instancia de Virtual Vulcano en Azure se puede consultar [este fichero](azure-setup.md). Para conocer más sobre la arquitectura de la aplicación entera podemos usar [este fichero](arquitecture.md).
 
-Se puede ver la aplicación funcionando en [este link](http://137.117.145.79/).
+Se puede ver la aplicación funcionando en [este link](http://137.117.145.58/). Se puede incluso ejecutar un [servicio de prueba](example-service.md), aunque no se van a poder ver los logs de la ejecución a menos que se acceda al servidor por SSH (de momento).
 
 Como resumen rápido de los avances del proyecto en este hito:
 
