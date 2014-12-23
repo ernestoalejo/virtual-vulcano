@@ -8,7 +8,7 @@ virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulc
 Documentacion
 -------------
 
- * [Planteamiento del proyecto](docs/planteamiento.md)
+ * [Planteamiento del proyecto](docs/mission.md)
  * Estructura del proyecto:
      * [Tecnologias utilizadas](docs/technologies.md)
      * [Arquitectura general](docs/arquitecture.md)

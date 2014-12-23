@@ -4,7 +4,7 @@ Arquitectura general
 
 > En este documento se explica la organización y el funcionamiento de la aplicación desde el punto de vista más abstracto. Sirve para entender y justificar las decisiones de diseño que hemos tomado. Si lo que quieres es usar la aplicación es preferible pasar directamente a los documentos de instalación.
 
-Para conseguir el objetivo que hemos reflejado en el [planteamiento](planteamiento.md) necesitamos que tres componentes independientes actuen correcta y coordinadamente para el mismo fin.
+Para conseguir el objetivo que hemos reflejado en el [planteamiento](mission.md) necesitamos que tres componentes independientes actuen correcta y coordinadamente para el mismo fin.
 
 
 
