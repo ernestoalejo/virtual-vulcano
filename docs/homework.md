@@ -8,9 +8,9 @@ Prácticas
 
 El énfasis de esta práctica está en la automatización para lanzar la aplicación en un SASS. Nosotros nos hemos centrado en lanzar el panel de provisionamiento de nuestra herramienta en cualquier plataforma SASS que tenga el usuario. En concreto el ejemplo está hecho en Azure pero cualquier valdría siguiendo las instrucciones.
 
-Para ver las instrucciones de cómo crear una instancia de Virtual Vulcano en Azure se puede consultar [este fichero](azure-setup.md). Para conocer más sobre la arquitectura de la aplicación entera podemos usar [este fichero](arquitecture.md).
-
 Se puede ver la aplicación funcionando en [este link](http://137.117.145.58/). Se puede incluso ejecutar un [servicio de prueba](example-service.md), aunque no se van a poder ver los logs de la ejecución a menos que se acceda al servidor por SSH (de momento).
+
+Para ver las instrucciones de cómo crear una instancia de Virtual Vulcano en Azure se puede consultar [este fichero](azure-setup.md). Para conocer más sobre la arquitectura de la aplicación entera podemos usar [este fichero](arquitecture.md).
 
 Como resumen rápido de los avances del proyecto en este hito:
 
