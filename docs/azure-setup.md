@@ -64,6 +64,8 @@ Abrimos la versión raw del fichero y copiamos la dirección.
 
 ### Inicializar de la máquina
 
+Si estamos usando la máquina de ejemplo que mencionaba antes es posible que 768 MB de RAM se queden cortos para todo lo que vamos a abrir. Si vemos que tenemos una cantidad de RAM inferior a 1 GB es conveniente habilitar el swap en CoreOS para que no nos quedemos sin recursos y se cierren las aplicaciones. Para habilitar un archivo de swap podemos consultar [este gist](https://gist.github.com/kacinskas/8d58ebce2e4cf6c9a09b).
+
 Entramos en la máquina usando ssh:
 
 ```bash 
