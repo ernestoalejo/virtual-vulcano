@@ -20,3 +20,5 @@ Como resumen rápido de los avances del proyecto en este hito:
  - Tenemos una interfaz web para el panel de provisionamiento.
  - Estamos cubriendo bastante parte del código de *NodeJS* (y más que viene en camino) con pruebas automatizadas usando *Jasmine*.
  - Usamos MongoDB para guardar los datos de los clústeres y próximamente los servicios y el estado de las máquinas.
+ - Como referencia: [Dockerfile](https://github.com/ernestoalejo/virtual-vulcano/blob/master/web/Dockerfile) y [Dockerhub](https://registry.hub.docker.com/u/virtualvulcano/web/)
+
