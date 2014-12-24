@@ -29,8 +29,11 @@
       <div class="page-header">
         <h1>Fichero cloud-config</h1>
       </div>
-      <p>Copia el siguiente fichero y úsalo para inicializar tu clúster de servidores:</p>
       <p>&nbsp;</p>
+      <p>Copia el siguiente comando y úsalo para inicializar tu clúster de servidores:</p>
+      <textarea id="command-cloud-config" readonly onclick='this.select()'>sudo coreos-cloudinit --from-url="http://virtual-vulcano.appspot.com/cloud-config/{{ ctrl.token }}"</textarea>
+      <p>&nbsp;</p>
+      <p>O bien copia el siguiente fichero y úsalo para inicializar tu clúster de servidores:</p>
       <textarea readonly onclick='this.select()'>{{ ctrl.cloudConfig }}</textarea>
     </div>
   </div>

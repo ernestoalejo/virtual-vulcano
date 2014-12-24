@@ -15,3 +15,7 @@ textarea {
   height: 400px;
   font-family: monospace;
 }
+
+#command-cloud-config {
+    max-height: 30px;
+}

@@ -18,7 +18,8 @@ app.controller('vulcano.GenerateCtrl', function ($http, $q) {
 		$q.all([
 			$http.post('/api/code'),
 		]).then(function (result) {
-			ctrl.cloudConfig = result[0].data;
+			ctrl.cloudConfig = result[0].data.cloudConfig;
+			ctrl.token = result[0].data.token;
 		});
 	};
 });

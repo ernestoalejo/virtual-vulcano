@@ -17,4 +17,8 @@ class CodeHandler(webapp2.RequestHandler):
         result = urlfetch.fetch('http://discovery.etcd.io/new')
         if result.status_code != 200:
             self.abort(503)
-        self.response.out.write(generate_cloud_config(result.content[26:]))
+        self.response.out.write(
+            json.dumps({
+                "cloudConfig": generate_cloud_config(result.content[26:]),
+                "token": result.content[26:]
+                }))
