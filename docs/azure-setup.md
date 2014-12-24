@@ -55,12 +55,12 @@ Entramos en el [instalador](http://virtual-vulcano.appspot.com/) y generamos un 
 
 ![Cloud-config](images/cloud-config.png "Cloud-config")
 
-Estamos [trabajando](https://github.com/ernestoalejo/virtual-vulcano/issues/23) para guardar el fichero online y facilitar este paso, pero de momento tenemos que copiarlo a algún sitio online y luego eliminarlo por privacidad y seguridad. Vamos a usar un gist como prueba.
+Este instalador nos da dos posibilidades:
 
-![Gists](images/gists.png "Gists")
+1. Usar el comando que nos indica.
+2. Usar el fichero cloud-config.
 
-Abrimos la versión raw del fichero y copiamos la dirección.
-
+Nosotros en este caso, para Azure, vamos a usar la primera posibilidad. Tan solo copiaremos el comando que nos muestra el instalador y lo usaremos en el siguiente paso.
 
 ### Inicializar de la máquina
 
@@ -72,10 +72,10 @@ Entramos en la máquina usando ssh:
 ssh core@[IP de la máquina]
 ```
 
-Una vez dentro de la máquina cargamos el fichero de configuración para inicializar el servicio:
+Una vez dentro de la máquina cargamos el fichero de configuración para inicializar el servicio, en nuestro caso, usaremos el comando proporcionado por el instalador:
 
 ```bash 
-sudo coreos-cloudinit --from-url="[dirección del gist raw]"
+sudo coreos-cloudinit --from-url="[dirección proporcionada por el instalador]"
 ```
 
 El servicio puede tardar uno o dos minutos en encender mientras MongoDB se inicializa y prepara la base de datos. Una vez que termine se puede acceder al panel de provisionamiento si ponemos la IP de la máquina en cualquier navegador.
