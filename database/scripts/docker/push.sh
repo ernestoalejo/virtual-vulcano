@@ -7,5 +7,5 @@
 set -e
 set -u
 
-docker/build.sh
+scripts/docker/build.sh
 docker push virtualvulcano/database
