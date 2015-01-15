@@ -7,7 +7,8 @@ MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
 RUN apt-get update
 
-ADD . /web
+ADD app /web
+ADD provision/.bashrc /root/.bashrc
 
 WORKDIR /web
-CMD /web/cmd/startup.sh
+CMD node index.js
