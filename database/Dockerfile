@@ -6,5 +6,3 @@ FROM mysql:5.6
 MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
 ENV MYSQL_ROOT_PASSWORD virtualvulcano
-
-CMD mysqld
