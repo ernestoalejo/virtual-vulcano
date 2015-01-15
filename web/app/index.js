@@ -4,8 +4,6 @@
 
 'use strict';
 
-require('./models/database');
-
 var express = require('express'),
     base = require('./handlers/base'),
     ejs = require('ejs'),
