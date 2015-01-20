@@ -4,6 +4,8 @@
 
 'use strict';
 
+var users = require('../app/model/db.js');
+
 
 module.exports = {
 
