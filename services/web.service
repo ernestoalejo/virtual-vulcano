@@ -1,0 +1,19 @@
+# Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+[Unit]
+Description=Web service
+Requires=docker.service
+Requires=web.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill web
+ExecStartPre=-/usr/bin/docker rm web
+ExecStartPre=/usr/bin/docker pull virtualvulcano/web
+ExecStart=/usr/bin/docker run --name web -p ${COREOS_PUBLIC_IPV4}:8080:8000 virtualvulcano/web
+ExecStop=/usr/bin/docker stop web

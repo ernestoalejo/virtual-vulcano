@@ -1,0 +1,19 @@
+# Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+[Unit]
+Description=Database service
+Requires=docker.service
+Requires=database.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill database
+ExecStartPre=-/usr/bin/docker rm database
+ExecStartPre=/usr/bin/docker pull virtualvulcano/database
+ExecStart=/usr/bin/docker run --name database -p ${COREOS_PUBLIC_IPV4}:3306:3306 virtualvulcano/database
+ExecStop=/usr/bin/docker stop database
