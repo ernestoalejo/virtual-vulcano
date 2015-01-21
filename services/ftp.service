@@ -3,6 +3,8 @@
 # can be found in the LICENSE.md file.
 [Unit]
 Description=Ftp service
+Requires=etcd.service
+Requires=fleetctl.service
 Requires=docker.service
 Requires=ftp.service
 After=docker.service
