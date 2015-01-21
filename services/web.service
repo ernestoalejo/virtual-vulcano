@@ -4,10 +4,14 @@
 
 [Unit]
 Description=Web service
+
 Requires=etcd.service
 Requires=fleetctl.service
 Requires=docker.service
 Requires=web.service
+
+After=etcd.service
+After=fleetctl.service
 After=docker.service
 
 [Service]
