@@ -23,7 +23,8 @@
     "mkdirp": "^0.5.0",
     "mysql": "^2.5.4",
     "q": "^1.1.2",
-    "sequelize": "^2.0.0-rc7"
+    "sequelize": "^2.0.0-rc7",
+    "soynode": "^0.7.2"
   },
   "devDependencies": {
     "gulp": "^3.8.10",
