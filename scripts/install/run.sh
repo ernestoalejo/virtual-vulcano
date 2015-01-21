@@ -18,18 +18,13 @@ sudo mkdir -p $SERVICES_PATH
 cd $SERVICES_PATH
 
 echo " [*] Download services files..."
-curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/database.service | sudo tee database.service > /dev/null
-curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/web.service | sudo tee web.service > /dev/null
-curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/ftp.service | sudo tee ftp.service > /dev/null
+declare -a SERVICES=("database" "web" "ftp")
+for SERVICE in "${SERVICES[@]}"
+do
+    echo " [*] Download service definition file"
+    curl -silent https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/$SERVICE.service | sudo tee database.service > /dev/null
 
-echo " [*] Enable & start database service..."
-sudo systemctl enable $SERVICES_PATH/database.service
-sudo systemctl start database
-
-echo " [*] Enable & start web service..."
-sudo systemctl enable $SERVICES_PATH/web.service
-sudo systemctl start web
-
-echo " [*] Enable & start ftp service..."
-sudo systemctl enable $SERVICES_PATH/ftp.service
-sudo systemctl start ftp
+    echo " [*] Enable & start $SERVICE service..."
+    sudo systemctl enable $SERVICES_PATH/$SERVICE.service
+    sudo systemctl start $SERVICE
+done
