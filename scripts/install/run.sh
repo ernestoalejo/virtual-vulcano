@@ -14,6 +14,7 @@ cd $SERVICES_PATH
 
 wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/database.service
 wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/web.service
+wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/ftp.service
 
 sudo systemctl enable database.service
 sudo systemctl start database.service
