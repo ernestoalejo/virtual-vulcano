@@ -11,7 +11,7 @@ var users = require('../model/db.js'),
 module.exports = {
 
   dashboard: function (req, res) {
-    return templates.render('dashboard');
+    return templates.render('vv.dashboard');
   },
 
 };

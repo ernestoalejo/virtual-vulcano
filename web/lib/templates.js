@@ -18,7 +18,11 @@ module.exports = {
   render: function (name, data) {
     return Q.nfcall(soynode.compileTemplates, 'app/templates')
       .then(function () {
-        return soynode.render(name, data);
+        var content = soynode.render(name, data);
+
+        return soynode.render('vv.base', {
+          content: content,
+        });
       });
   },
 }

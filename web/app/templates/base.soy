@@ -1,2 +1,52 @@
 
+{namespace vv}
 
+
+/**
+ * Base template shared between all pages
+ * @param content
+ */
+{template .base }
+  <!DOCTYPE html>
+  <html ng-app="app">
+  <head>
+
+    <meta charset="utf-8">
+    
+    <title>Virtual Vulcano</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/styles/core/body.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/core/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/core/form.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/core/tables.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/core/typography.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/layout/content.css">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="dashboard">Virtual Vulcano</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container content">
+      {$content |noAutoescape}
+    </div>
+
+    <script src="/static/vendor/jquery/dist/jquery.js"></script>
+    <script src="/static/vendor/angular/angular.js"></script>
+    <script src="/static/vendor/angular-messages/angular-messages.js"></script>
+    <script src="/static/vendor/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/static/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+  </body>
+  </html>
+
+{/template}
