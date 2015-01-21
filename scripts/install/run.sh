@@ -21,8 +21,8 @@ echo " [*] Download services files..."
 declare -a SERVICES=("database" "web" "ftp")
 for SERVICE in "${SERVICES[@]}"
 do
-    echo " [*] Download service definition file"
-    curl -silent https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/$SERVICE.service | sudo tee database.service > /dev/null
+    echo " [*] Download service $SERVICE definition file"
+    sudo curl -s https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/$SERVICE.service -o database.service
 
     echo " [*] Enable & start $SERVICE service..."
     sudo systemctl enable $SERVICES_PATH/$SERVICE.service
