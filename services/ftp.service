@@ -1,0 +1,19 @@
+# Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+[Unit]
+Description=Ftp service
+Requires=docker.service
+Requires=ftp.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill ftp
+ExecStartPre=-/usr/bin/docker rm ftp
+ExecStartPre=/usr/bin/docker pull virtualvulcano/ftp
+ExecStart=/usr/bin/docker run --name ftp -p ${COREOS_PUBLIC_IPV4}:21:21 virtualvulcano/ftp
+ExecStop=/usr/bin/docker stop ftp
