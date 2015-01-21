@@ -4,13 +4,14 @@
 
 'use strict';
 
-var users = require('../app/model/db.js');
+var users = require('../model/db.js'),
+    templates = require('../../lib/templates.js');
 
 
 module.exports = {
 
-  base: function (req, res) {
-    res.render('base');
+  dashboard: function (req, res) {
+    return templates.render('dashboard');
   },
 
 };

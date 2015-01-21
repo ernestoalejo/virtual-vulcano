@@ -5,8 +5,7 @@
 'use strict';
 
 var express = require('express'),
-    base = require('./handlers/base'),
-    ejs = require('ejs'),
+    dashboard = require('./handlers/dashboard'),
     path = require('path'),
     promised = require('./middlewares/promised'),
     bodyParser = require('body-parser');
@@ -15,22 +14,12 @@ var express = require('express'),
 var app = express();
 
 
-// Register engines
-app.engine('html', ejs.renderFile);
-
-// Configurations
-app.set('views', __dirname + '/templates');
-app.set('view engine', 'html');
-
 // Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 
-// Base handler
-app.get('/', base.base);
-app.get('/:s1', base.base);
-app.get('/:s1/:s2', base.base);
-app.get('/:s1/:s2/:s3', base.base);
+// Dashboard handler
+app.get('/', promised(dashboard.dashboard));
 
 
 // Start server
