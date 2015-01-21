@@ -6,12 +6,10 @@
 Description=Ftp service
 
 Requires=etcd.service
-Requires=fleetctl.service
 Requires=docker.service
 Requires=ftp.service
 
 After=etcd.service
-After=fleetctl.service
 After=docker.service
 
 [Service]

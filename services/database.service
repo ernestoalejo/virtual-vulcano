@@ -6,12 +6,10 @@
 Description=Database service
 
 Requires=etcd.service
-Requires=fleetctl.service
 Requires=docker.service
 Requires=database.service
 
 After=etcd.service
-After=fleetctl.service
 After=docker.service
 
 [Service]
