@@ -7,7 +7,10 @@ set -eu
 
 SERVICES_PATH=/opt/virtualvulcano/services
 
-echo " [*] Cache web server..."
+echo " [*] Cache containers..."
+docker pull virtualvulcano/database
+docker pull virtualvulcano/ftp
+docker pull virtualvulcano/web
 docker pull virtualvulcano/web-server
 
 echo " [*] Prepare dist folder..."
