@@ -20,3 +20,6 @@ ExecStartPre=-/usr/bin/docker rm database
 ExecStartPre=/usr/bin/docker pull virtualvulcano/database
 ExecStart=/usr/bin/docker run --name database -p ${COREOS_PUBLIC_IPV4}:3306:3306 virtualvulcano/database
 ExecStop=/usr/bin/docker stop database
+
+[Install]
+WantedBy=multi-user.target

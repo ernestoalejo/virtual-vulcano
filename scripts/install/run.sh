@@ -12,16 +12,18 @@ docker pull virtualvulcano/web-server
 mkdir -p $SERVICES_PATH
 cd $SERVICES_PATH
 
-wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/database.service
-wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/web.service
-wget https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/ftp.service
+curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/database.service > database.service
+curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/web.service > web.service
+curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/services/ftp.service > ftp.service
 
-sudo systemctl enable database.service
+sudo systemctl enable $SERVICES_PATH/database.service
 sudo systemctl start database.service
 
-sudo systemctl enable web.service
+sudo systemctl enable $SERVICES_PATH/web.service
 sudo systemctl start web.service
 
-sudo systemctl enable ftp.service
+sudo systemctl enable $SERVICES_PATH/ftp.service
 sudo systemctl start ftp.service
+
+
 

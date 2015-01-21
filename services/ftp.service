@@ -1,6 +1,7 @@
 # Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that
 # can be found in the LICENSE.md file.
+
 [Unit]
 Description=Ftp service
 Requires=etcd.service
@@ -19,3 +20,6 @@ ExecStartPre=-/usr/bin/docker rm ftp
 ExecStartPre=/usr/bin/docker pull virtualvulcano/ftp
 ExecStart=/usr/bin/docker run --name ftp -p ${COREOS_PUBLIC_IPV4}:21:21 virtualvulcano/ftp
 ExecStop=/usr/bin/docker stop ftp
+
+[Install]
+WantedBy=multi-user.target
