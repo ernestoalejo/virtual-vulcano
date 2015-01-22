@@ -7,7 +7,7 @@
 var Sequelize = require('sequelize');
 
 var sequelize = new Sequelize('virtualvulcano', 'virtualvulcano', 'virtualvulcano', {
-  host: process.env.WEBDATABASE_PORT_3306_TCP_ADDR,
+  host: process.env.DATABASE_PORT_3306_TCP,
   dialect: 'mysql',
 });
 
