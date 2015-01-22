@@ -1,0 +1,12 @@
+
+<div class="form-submit">
+  <button type="submit" ng-class="ctrl.btnClass || 'btn-primary'" ng-disabled="(ctrl.isSent() && ctrl.form.$invalid) || ctrl.isSending() || ctrl.disabled" ng-click="ctrl.registerClick()" class="btn">
+    <span ng-show="ctrl.isSending()">
+      <i class="fa fa-spinner fa-spin"></i>
+      {{ ::ctrl.sendingMsg }}
+    </span>
+    <span ng-show="!ctrl.isSending()">
+      <ng-transclude></ng-transclude>
+    </span>
+  </button>
+</div>
