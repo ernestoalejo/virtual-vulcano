@@ -11,6 +11,4 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -y proftpd
 ADD /provision/proftpd.conf /etc/proftpd/proftpd.conf
 RUN chown root:root /etc/proftpd/proftpd.conf
 
-EXPOSE 21
-
 CMD exec /usr/sbin/proftpd --nodaemon
