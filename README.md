@@ -2,32 +2,45 @@
 virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulcano.svg?branch=master)](https://travis-ci.org/ernestoalejo/virtual-vulcano)
 ===============
 
-<p align="center"><img src="https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/logo.png"></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/logo.png">
+</p>
 
-<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/built-by-developers.svg" height="30"></a>
+<a href="http://forthebadge.com">
+  <img src="http://forthebadge.com/images/badges/built-by-developers.svg" height="30">
+</a>
 &nbsp;
-<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" height="30"></a>
+<a href="http://forthebadge.com">
+  <img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" height="30">
+</a>
 &nbsp;
-<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/uses-git.svg" height="30"></a>
+<a href="http://forthebadge.com">
+  <img src="http://forthebadge.com/images/badges/uses-git.svg" height="30">
+</a>
 
 
-Documentacion
--------------
+Install on your server
+----------------------
 
- * [Planteamiento del proyecto](docs/mission.md)
- * Estructura del proyecto:
-     * [Tecnologias utilizadas](docs/technologies.md)
-     * [Arquitectura general](docs/arquitecture.md)
- * Instalación:
-     * [Instalación en Azure](docs/azure-setup.md)
-     * [Instalador online](http://virtual-vulcano.appspot.com/)
- * [Documentación para las prácticas de IV](docs/homework.md)
- * [Servicio de ejemplo](docs/example-service.md)
- * [Dockerhub](https://registry.hub.docker.com/u/virtualvulcano/web/)
+TODO
 
 
-Licencia
--------------
+Contributing
+------------
+
+#### Requirements
+
+You'll need the software specified in the [requirements for contributing](docs/requirements.md) document.
+
+#### Run the code
+
+1. Fork and clone the repo.
+2. Get the containers up and running: ```vagrant up```
+3. Hack!
+
+
+License
+-------
 
 ```
 Copyright (c) 2015, Virtual Vulcano authors

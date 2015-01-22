@@ -29,4 +29,4 @@ RUN bower install --allow-root
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
-CMD node index.js
+CMD node app/index.js
