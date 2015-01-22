@@ -6,4 +6,4 @@
 
 set -eu
 
-docker run -p 21:21 --privileged=true -i -t virtualvulcano/ftp
+docker run -p 21:21 --privileged=true -i -t virtualvulcano/ftp -name ftp

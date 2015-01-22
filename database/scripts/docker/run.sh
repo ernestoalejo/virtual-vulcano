@@ -6,4 +6,5 @@
 
 set -eu
 
-docker run --privileged=true -i -t virtualvulcano/database
+docker rm database || echo -n
+docker run --privileged=true --name database -i -t virtualvulcano/database

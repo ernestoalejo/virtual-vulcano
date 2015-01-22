@@ -7,4 +7,5 @@
 set -e
 set -u
 
-docker run --privileged=true -v $(pwd):/web -i -p 8000:8000 -t virtualvulcano/web bash
+docker rm web || echo -n
+docker run --privileged=true -v $(pwd):/web -i -p 8000:8000 --link database:database --name web -t virtualvulcano/web bash
