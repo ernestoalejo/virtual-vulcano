@@ -16,6 +16,7 @@
   },
   "homepage": "http://ernestoalejo.github.io/virtual-vulcano",
   "dependencies": {
+    "bcrypt": "^0.8.1",
     "body-parser": "^1.10.0",
     "child-process-promise": "^1.0.0",
     "express": "^4.11.0",

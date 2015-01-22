@@ -9,7 +9,8 @@ var express = require('express'),
     path = require('path'),
     promised = require('./middlewares/promised'),
     bodyParser = require('body-parser'),
-    session = require('express-session');
+    session = require('express-session'),
+    accounts = require('./handlers/accounts');
 
 
 var app = express();
@@ -20,6 +21,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 
 app.use(session({
   name: 'SID',
+  secret: 'VirtualVulcano',
   rolling: true,
   resave: false,
   proxy: false,

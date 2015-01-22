@@ -4,7 +4,7 @@
 
 'use strict';
 
-var users = require('../app/model/db.js'),
+var users = require('../model/db.js'),
     bcrypt = require('bcrypt'),
     Q = require('q');
 
