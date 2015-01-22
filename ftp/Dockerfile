@@ -12,6 +12,5 @@ ADD /provision/proftpd.conf /etc/proftpd/proftpd.conf
 RUN chown root:root /etc/proftpd/proftpd.conf
 
 EXPOSE 21
-EXPOSE 20
 
 CMD exec /usr/sbin/proftpd --nodaemon
