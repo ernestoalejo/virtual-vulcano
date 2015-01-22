@@ -8,7 +8,7 @@ MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 RUN apt-get update -y
 RUN DEBIAN_FRONTED=noninteractive apt-get install -y proftpd
 
-ADD /provision/proftpd.conf /etc/proftpd/proftpd.conf
+ADD provision/proftpd.conf /etc/proftpd/proftpd.conf
 RUN chown root:root /etc/proftpd/proftpd.conf
 
 CMD /usr/sbin/proftpd --nodaemon

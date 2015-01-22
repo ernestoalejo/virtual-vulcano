@@ -7,6 +7,8 @@ MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
 RUN echo deb http://ftp.debian.org/debian/ wheezy-backports main >> /etc/apt/sources.list && \
     apt-get update && \
-    apt-get install -y haproxy
+    apt-get DEBIAN_FRONTED=noninteractive install -y haproxy
 
-CMD haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid
+ADD provision/haproxy.cfg /etc/haproxy/haproxy.cfg
+
+CMD /usr/bin/haproxy -f /etc/haproxy/haproxy.cfg
