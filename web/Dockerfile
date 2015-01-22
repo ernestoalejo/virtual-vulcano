@@ -18,6 +18,10 @@ RUN \
 ADD app /web
 ADD provision/.bashrc /root/.bashrc
 
-WORKDIR /web
+RUN npm i
+RUN bower install
+
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
+
+WORKDIR /web
 CMD node index.js
