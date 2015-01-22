@@ -21,7 +21,7 @@ module.exports = {
     return users.find(query)
       .then(function (user) {
         if (!user) {
-          return {sucess: false};
+          return {success: false};
         }
 
         return Q.nfcall(bcrypt.compare, req.data.password, user.password)

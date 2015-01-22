@@ -17,7 +17,7 @@ module.controller('accounts.LoginCtrl', function (Accounts) {
     ctrl.error = false;
     
     return Accounts.login(ctrl.data).then(function (data) {
-      if (data.sucess) {
+      if (data.success) {
         location.reload();
         return;
       }
