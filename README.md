@@ -4,6 +4,12 @@ virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulc
 
 <p align="center"><img src="https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/logo.png"></p>
 
+<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/built-by-developers.svg" height="26"></a>
+&nbsp;
+<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" height="26"></a>
+&nbsp;
+<a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/uses-git.svg" height="26"></a>
+
 
 Documentacion
 -------------
