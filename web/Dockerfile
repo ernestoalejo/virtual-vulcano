@@ -15,13 +15,18 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk7-installer
 
-ADD app /web
 ADD provision/.bashrc /root/.bashrc
 
+ADD app /web
+ADD package.json /web/package.json
+ADD bower.json /web/bower.json
+ADD .bowerrc /web/.bowerrc
+
+WORKDIR /web
+
 RUN npm i
-RUN bower install
+RUN bower install --allow-root
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
-WORKDIR /web
 CMD node index.js
