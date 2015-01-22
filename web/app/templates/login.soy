@@ -6,30 +6,30 @@
  */
 {template .login}
 
-  <div ng-controller="accounts.LoginCtrl as ctrl">
-    <div class="alert alert-danger" ng-show="ctrl.error">El usuario o contraseña son incorrectos</div>
+  <div ng-controller="accounts.LoginCtrl as ctrl" class="login well well-lg">
+    <div class="alert alert-danger" ng-show="ctrl.error">Username or password are incorrect</div>
 
     <ajax-form submit="ctrl.submit()">
       <form-group name="user">
-        <label class="control-label" for="user">Usuario</label>
+        <label class="control-label" for="user">Username</label>
         <input class="form-control" id="user" type="text" name="user" ng-model="ctrl.data.user" required>
         
         <form-errors>
-          <form-error when="required">Escribe el nombre de usuario para entrar</form-error>
+          <form-error when="required">Enter the username</form-error>
         </form-errors>
       </form-group>
       
       <form-group name="password">
-        <label class="control-label" for="password">Contraseña</label>
+        <label class="control-label" for="password">Password</label>
         <input class="form-control" id="password" type="password" name="password" ng-model="ctrl.data.password" required ng-minlength="8">
 
         <form-errors>
-          <form-error when="required">Escribe la contraseña</form-error>
-          <form-error when="minlength">La contraseña es demasiado corta</form-error>
+          <form-error when="required">Enter the password</form-error>
+          <form-error when="minlength">Password is too short</form-error>
         </form-errors>
       </form-group>
 
-      <form-submit>Enviar</form-submit>
+      <form-submit>Login</form-submit>
     </ajax-form>
   </div>
 
