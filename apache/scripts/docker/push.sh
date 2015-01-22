@@ -7,4 +7,5 @@
 set -e
 set -u
 
-docker build -t virtualvulcano/web-server .
+scripts/docker/build.sh
+docker push virtualvulcano/apache

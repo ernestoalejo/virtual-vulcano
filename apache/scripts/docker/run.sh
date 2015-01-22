@@ -6,4 +6,4 @@
 
 set -eu
 
-docker run -p 80:80 --privileged=true -i -t virtualvulcano/web-server
+docker run -p 80:80 --privileged=true -i -t virtualvulcano/apache

@@ -11,7 +11,7 @@ echo " [*] Cache containers..."
 docker pull virtualvulcano/database
 docker pull virtualvulcano/ftp
 docker pull virtualvulcano/web
-docker pull virtualvulcano/web-server
+docker pull virtualvulcano/apache
 
 echo " [*] Prepare dist folder..."
 sudo mkdir -p $SERVICES_PATH
