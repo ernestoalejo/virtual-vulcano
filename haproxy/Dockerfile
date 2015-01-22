@@ -5,10 +5,8 @@
 FROM debian:wheezy
 MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
-RUN apt-get update -y
-RUN DEBIAN_FRONTED=noninteractive apt-get install -y proftpd
+RUN echo deb http://ftp.debian.org/debian/ wheezy-backports main >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y haproxy
 
-ADD /provision/proftpd.conf /etc/proftpd/proftpd.conf
-RUN chown root:root /etc/proftpd/proftpd.conf
-
-CMD /usr/sbin/proftpd --nodaemon
+CMD haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid
