@@ -11,4 +11,4 @@ RUN echo deb http://ftp.debian.org/debian/ wheezy-backports main >> /etc/apt/sou
 
 ADD provision/haproxy.cfg /etc/haproxy/haproxy.cfg
 
-CMD /usr/bin/haproxy -f /etc/haproxy/haproxy.cfg
+CMD /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
