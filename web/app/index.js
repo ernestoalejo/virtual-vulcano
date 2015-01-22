@@ -21,6 +21,8 @@ app.use(bodyParser.json());
 // Dashboard handler
 app.get('/', promised(dashboard.dashboard));
 
+app.post('/api/accounts/login', promised(accounts.login));
+
 
 // Start server
 app.listen(8080, function () {
