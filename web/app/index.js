@@ -8,7 +8,8 @@ var express = require('express'),
     dashboard = require('./handlers/dashboard'),
     path = require('path'),
     promised = require('./middlewares/promised'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    session = require('express-session');
 
 
 var app = express();
@@ -16,6 +17,15 @@ var app = express();
 
 // Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
+
+app.use(session({
+  name: 'SID',
+  rolling: true,
+  resave: false,
+  proxy: false,
+  saveUninitialized: false
+}));
+
 app.use(bodyParser.json());
 
 // Dashboard handler

@@ -8,7 +8,6 @@ var users = require('../app/model/db.js'),
     bcrypt = require('bcrypt'),
     Q = require('q');
 
-
 module.exports = {
 
   login: function (req, res) {
@@ -26,6 +25,10 @@ module.exports = {
 
         return Q.nfcall(bcrypt.compare, req.data.password, user.password)
           .then(function (res) {
+            if(res){
+              req.session.user = user.username;
+            }
+
             return {success: res};
           });
       });
