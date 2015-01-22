@@ -7,4 +7,4 @@
 set -e
 set -u
 
-docker build -t virtualvulcano/apache .
+docker build -t virtualvulcano/haproxy .

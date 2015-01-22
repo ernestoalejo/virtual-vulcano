@@ -6,4 +6,4 @@
 
 set -eu
 
-docker run -p 80:80 --privileged=true -i -t virtualvulcano/apache
+docker run -p 8080:8080 --privileged=true -i -t virtualvulcano/haproxy

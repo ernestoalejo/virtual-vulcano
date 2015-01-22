@@ -8,4 +8,4 @@ set -e
 set -u
 
 scripts/docker/build.sh
-docker push virtualvulcano/apache
+docker push virtualvulcano/haproxy
