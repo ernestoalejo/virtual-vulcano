@@ -16,7 +16,7 @@ var formGroupDirective = function() {
     controller: FormGroupCtrl,
     controllerAs: 'ctrl',
     bindToController: true,
-    templateUrl: '/static/scripts/common/forms/form-group.html',
+    templateUrl: '/static/scripts/forms/form-group.html',
     link: function (scope, element, attrs, ctrls) {
       var formGroupCtrl = /** @type {FormGroupCtrl} */ (ctrls[0]);
       formGroupCtrl.setAjaxFormCtrl(ctrls[1]);

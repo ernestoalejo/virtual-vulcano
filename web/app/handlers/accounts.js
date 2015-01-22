@@ -8,12 +8,13 @@ var users = require('../model/db.js'),
     bcrypt = require('bcrypt'),
     Q = require('q');
 
+
 module.exports = {
 
   login: function (req, res) {
     var query = {
       where: {
-        username: req.data.username,
+        username: req.body.user,
       },
     };
 
@@ -23,7 +24,7 @@ module.exports = {
           return {success: false};
         }
 
-        return Q.nfcall(bcrypt.compare, req.data.password, user.password)
+        return Q.nfcall(bcrypt.compare, req.body.password, user.password)
           .then(function (res) {
             if(res){
               req.session.user = user.username;

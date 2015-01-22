@@ -25,21 +25,21 @@ var formErrorsDirective = function() {
       var formGroupCtrl =
           /** @type {FormGroupCtrl} */ (ctrls[1]);
 
-      var formErrorsCtrl.ajaxFormCtrl_ = /** @type {AjaxFormCtrl} */ (ctrls[2]);
+      formErrorsCtrl.ajaxFormCtrl_ = /** @type {AjaxFormCtrl} */ (ctrls[2]);
 
       /**
        * Name of the form group.
        * @type {string}
        * @export
        */
-      formErrorsCtrl.name = formGroupCtrl_.name;
+      formErrorsCtrl.name = formGroupCtrl.name;
 
       /**
        * Form instance; to access the field errors.
        * @type {!angular.FormController}
        * @export
        */
-      formErrorsCtrl.form = ajaxFormCtrl_.form;
+      formErrorsCtrl.form = formErrorsCtrl.ajaxFormCtrl_.form;
     },
     scope: /** @dict */ {
       'when': '@'

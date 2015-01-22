@@ -11,7 +11,7 @@ var users = require('../model/db.js'),
 module.exports = {
 
   dashboard: function (req, res) {
-    if (req.session.user) {
+    if (!req.session.user) {
       return templates.render('vv.login');
     }
     

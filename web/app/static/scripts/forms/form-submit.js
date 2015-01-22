@@ -9,7 +9,7 @@
  * Submit button for the form.
  * @return {!angular.Directive} Directive definition object.
  */
-formSubmitDirective = function() {
+var formSubmitDirective = function() {
   return {
     restrict: 'E',
     require: ['formSubmit', '^ajaxForm'],
@@ -38,7 +38,7 @@ formSubmitDirective = function() {
  * @ngInject
  * @export
  */
-FormSubmitCtrl = function() {
+var FormSubmitCtrl = function() {
   /**
    * Sending form button label.
    * @type {string}
@@ -60,7 +60,6 @@ FormSubmitCtrl = function() {
    * @private
    */
   this.ajaxFormCtrl_;
-};
 };
 
 
