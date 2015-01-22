@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill ftp
 ExecStartPre=-/usr/bin/docker rm ftp
 ExecStartPre=/usr/bin/docker pull virtualvulcano/ftp
-ExecStart=/usr/bin/docker run --name ftp -p ${COREOS_PUBLIC_IPV4}:21:21 virtualvulcano/ftp
+ExecStart=/usr/bin/docker run --name ftp -p 21:21 virtualvulcano/ftp
 ExecStop=/usr/bin/docker stop ftp
 
 [Install]

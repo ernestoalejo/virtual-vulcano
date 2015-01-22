@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill web
 ExecStartPre=-/usr/bin/docker rm web
 ExecStartPre=/usr/bin/docker pull virtualvulcano/web
-ExecStart=/usr/bin/docker run --name web -p ${COREOS_PUBLIC_IPV4}:8080:8000 virtualvulcano/web
+ExecStart=/usr/bin/docker run --name web -p 8080:8000 virtualvulcano/web
 ExecStop=/usr/bin/docker stop web
 
 [Install]
