@@ -7,4 +7,4 @@
 set -e
 set -u
 
-docker run --privileged=true -v $(pwd):/web -i -p 8080:8080 -t virtualvulcano/web bash
+docker run --privileged=true -v $(pwd):/web -i -p 8000:8000 -t virtualvulcano/web bash

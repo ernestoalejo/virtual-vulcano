@@ -37,7 +37,7 @@ app.post('/api/accounts/login', promised(accounts.login));
 
 
 // Start server
-app.listen(8080, function () {
-  console.log('server listening in http://localhost:8080');
+app.listen(8000, function () {
+  console.log('server listening in http://localhost:8000');
 });
 
