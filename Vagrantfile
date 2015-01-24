@@ -27,8 +27,7 @@ Vagrant.configure('2') do |config|
   config.vm.define 'web' do |web|
     web.vm.provider 'docker' do |d|
       d.name = 'web'
-      d.create_args = ['--privileged=true', '-i', '-t']
-      d.remains_running = false
+      d.create_args = ['--privileged=true']
       d.build_dir = 'web'
       d.ports = ['8000:8000']
 
@@ -41,7 +40,7 @@ Vagrant.configure('2') do |config|
   # Attach to the web container console when running it
   config.trigger.after [:up, :reload], :vm => 'web' do
     info "Executing bash instance inside web container..."
-    system "docker attach web"
+    system "docker exec -i -t web bash"
     if $?.exitstatus == 1
       run "docker logs web"
       error "Cannot attach to web container!"
