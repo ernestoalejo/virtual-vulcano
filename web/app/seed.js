@@ -7,7 +7,7 @@
 
 var Sequelize = require('sequelize'),
     _ = require('lodash'),
-    db = require('../model/db');
+    db = require('./model/db');
 
 
 var queries = [
