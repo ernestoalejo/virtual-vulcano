@@ -27,7 +27,7 @@ Vagrant.configure('2') do |config|
   config.vm.define 'web' do |web|
     web.vm.provider 'docker' do |d|
       d.name = 'web'
-      d.create_args = ['--privileged=true']
+      d.create_args = ['--privileged=true', '-i', '-t']
       d.build_dir = 'web'
       d.ports = ['8000:8000']
 
@@ -35,11 +35,6 @@ Vagrant.configure('2') do |config|
     end
 
     web.vm.synced_folder 'web', '/web'
-  end
-
-  # Attach to the web container console when running it
-  config.trigger.after [:up, :reload], :vm => 'web' do
-    run "docker logs -f web"
   end
 
   config.push.define 'database', strategy: 'local-exec' do |push|

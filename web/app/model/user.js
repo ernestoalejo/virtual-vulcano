@@ -5,7 +5,8 @@
 'use strict';
 
 
-var sequelize = require('db.js');
+var sequelize = require('./db.js'),
+    Sequelize = require('sequelize');
 
 
 module.exports = sequelize.define('User', {

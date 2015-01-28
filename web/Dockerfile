@@ -29,4 +29,5 @@ RUN bower install --allow-root
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
-CMD node scripts/seed/seed.js && node app/index.js
+CMD bash
+# CMD node scripts/seed/seed.js && node app/index.js
