@@ -37,6 +37,11 @@ Vagrant.configure('2') do |config|
     web.vm.synced_folder 'web', '/web'
   end
 
+  # Attach to the web container console when running it
+  config.trigger.after [:up, :reload], :vm => 'web' do
+    run "docker logs -f web"
+  end
+
   config.push.define 'database', strategy: 'local-exec' do |push|
     push.script = 'scripts/push/database.sh'
   end
