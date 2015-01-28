@@ -7,9 +7,8 @@
 var Sequelize = require('sequelize');
 
 
-module.exports = new Sequelize('virtualvulcano', 'virtualvulcano', 'virtualvulcano', {
+module.exports = new Sequelize('information_schema', 'root', '29d7a7a7c1be76eb6d1925ce7895a6d9', {
   host: process.env.DATABASE_PORT_3306_TCP_ADDR,
   dialect: 'mysql',
 });
-
 
