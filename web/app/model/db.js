@@ -6,13 +6,10 @@
 
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('virtualvulcano', 'virtualvulcano', 'virtualvulcano', {
+
+module.exports = new Sequelize('virtualvulcano', 'virtualvulcano', 'virtualvulcano', {
   host: process.env.DATABASE_PORT_3306_TCP_ADDR,
   dialect: 'mysql',
 });
 
-module.exports = sequelize.define('User', {
-  name: Sequelize.STRING,
-  description: Sequelize.TEXT,
-});
 

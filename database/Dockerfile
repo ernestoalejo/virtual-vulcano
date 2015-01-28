@@ -5,4 +5,4 @@
 FROM mysql:5.6
 MAINTAINER Virtual Vulcano <virtualvulcano@gmail.com>
 
-ENV MYSQL_ROOT_PASSWORD virtualvulcano
+ENV MYSQL_ROOT_PASSWORD 29d7a7a7c1be76eb6d1925ce7895a6d9
