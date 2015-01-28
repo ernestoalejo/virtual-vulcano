@@ -50,12 +50,19 @@ module.exports = {
       },
     };
 
-
     var currentUser;
     return users.find(query)
       .then(function (user) {
         currentUser = user;
 
+        return Q.nfcall(bcrypt.compare, req.body.password, user.password)
+      })
+      .then(function (res) {
+        if(res){
+          throw new Error('password not valid');
+        }
+        
+        req.session.user = user.username;
         return Q.nfcall(bcrypt.genSalt, 10);
       })
       .then(function (salt) {

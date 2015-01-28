@@ -9,4 +9,7 @@ RUN apt-get update
 RUN apt-get install -y apache2 && \ 
     apt-get install -y php5-common libapache2-mod-php5 php5-cli
 
+RUN apt-get install -y phpmyadmin && \
+    sed -i 's/!empty(\$dbname)/TRUE/' /etc/phpmyadmin/config.inc.php
+
 CMD /usr/sbin/apache2ctl -D FOREGROUND
