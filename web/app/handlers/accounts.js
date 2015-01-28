@@ -73,9 +73,10 @@ module.exports = {
 
 
   changePasswordForm: function (req, res) {    
-    // if (!req.session.user) {
-    //   return templates.render('vv.login');
-    // }
+    if (!req.session.user) {
+      return templates.render('vv.login');
+    }
+
     return templates.render('vv.changePassword');
   },
 
