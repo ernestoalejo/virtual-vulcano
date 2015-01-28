@@ -7,38 +7,31 @@
 
 var Sequelize = require('sequelize'),
     _ = require('lodash'),
-    db = require('./model/db');
+    fs = require('fs');
 
 
-var queries = [
-  "CREATE DATABASE IF NOT EXISTS virtualvulcano;",
-  function () {
-    db.sync();
-  },
- ];
-
-var current = 0;
-var next = function () {
-  var promise;
-  if (_.isString(queries[current])) {
-    promise = db.query(queries[current]);
-  } else {
-    promise = queries[current]();
-  }
-  if (!promise) {
-    return;
-  }
-
-  promise.then(function () {
-    current++;
-    next();
-  });
-};
+var connection = new Sequelize('information_schema', 'root', '29d7a7a7c1be76eb6d1925ce7895a6d9', {
+  host: process.env.DATABASE_PORT_3306_TCP_ADDR,
+  dialect: 'mysql',
+});
 
 
-db.query('SELECT user FROM mysql.user WHERE user="virtualvulcano"')
+connection.query('SELECT user FROM mysql.user WHERE user="virtualvulcano"')
   .then(function (user) {
     if(!user) {
-      next();
+      return;
     }
+    
+    return connection.query("CREATE DATABASE IF NOT EXISTS virtualvulcano;");
+  })
+  .then(function () {
+    _(fs.readdirSync('app/models'))
+      .filter(function (script) {
+        return script !== 'db.js';
+      })
+      .each(function (script) {
+        require('./models/' + script);
+      });
+
+    require('./models/db').sync();
   });

@@ -4,7 +4,7 @@
 
 'use strict';
 
-var users = require('../model/db.js'),
+var users = require('../models/db.js'),
     templates = require('../lib/templates.js'),
     plugins = require('../lib/plugins.js');
 
