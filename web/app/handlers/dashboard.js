@@ -13,10 +13,10 @@ module.exports = {
 
   dashboard: function (req, res) {
     if (!req.session.user) {
-      return templates.render('vv.login');
+      return templates.render(req, 'vv.login');
     }
     
-    return templates.render('vv.dashboard', {
+    return templates.render(req, 'vv.dashboard', {
       plugins: plugins.list(),
     });
   },

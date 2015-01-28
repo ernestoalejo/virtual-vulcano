@@ -5,6 +5,7 @@
 /**
  * Base template shared between all pages
  * @param content Content of the page.
+ * @param username User session.
  */
 {template .base autoescape="deprecated-contextual"}
   <!DOCTYPE html>
@@ -36,10 +37,12 @@
         <div class="navbar-header">
           <a class="navbar-brand" ui-sref="dashboard">Virtual Vulcano</a>
         </div>
-
-        <ul class="nav navbar-nav navbar-right" ng-controller="accounts.LogoutCtrl as ctrl">
-          <li><a href="" ng-click="ctrl.logout()">Desconectar</a></li>
-        </ul>
+        
+        {if $username}
+          <ul class="nav navbar-nav navbar-right" ng-controller="accounts.LogoutCtrl as ctrl">
+            <li><a href="" ng-click="ctrl.logout()">Desconectar</a></li>
+          </ul>
+        {/if}
       </div>
     </nav>
 

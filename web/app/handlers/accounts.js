@@ -81,10 +81,10 @@ module.exports = {
 
   changePasswordForm: function (req, res) {    
     if (!req.session.user) {
-      return templates.render('vv.login');
+      return templates.render(req, 'vv.login');
     }
 
-    return templates.render('vv.changePassword');
+    return templates.render(req, 'vv.changePassword');
   },
 
 };
