@@ -7,14 +7,15 @@
  @param plugins Plugins list.
  */
 {template .dashboard}
-  <h1>Dashboard</h1>
-  {foreach $plugin in $plugins}
-    <div class="pull-left">
-      <a href="{$plugin.url}">
-        <img src="{$plugin.icon}" height="36" width="36">
-      </a>
-      <a href="{$plugin.url}">{$plugin.name}</a>
-    </div>
-  {/foreach}
+  <div class="dashboard-grid">
+    {foreach $plugin in $plugins}
+      <div class="pull-left">
+        <a href="{$plugin.url}">
+          <img class="word-space" src="{$plugin.icon}" height="70" width="70">
+        </a>
+        <a href="{$plugin.url}">{$plugin.name}</a>
+      </div>
+    {/foreach}
+  </div>
 {/template}
 

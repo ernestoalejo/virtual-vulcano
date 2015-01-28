@@ -5,7 +5,26 @@
 'use strict';
 
 
-var plugins = [];
+var plugins = [
+  {
+    name: 'Project',
+    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
+    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+  },
+  
+  {
+    name: 'Change password',
+    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
+    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+  },
+
+  {
+    name: 'Monitoring',
+    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
+    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+  },
+
+];
 
 
 module.exports = {
