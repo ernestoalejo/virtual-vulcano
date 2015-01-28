@@ -5,7 +5,8 @@
 'use strict';
 
 var users = require('../model/db.js'),
-    templates = require('../lib/templates.js');
+    templates = require('../lib/templates.js'),
+    plugins = require('../lib/plugins.js');
 
 
 module.exports = {
@@ -15,7 +16,9 @@ module.exports = {
       return templates.render('vv.login');
     }
     
-    return templates.render('vv.dashboard');
+    return templates.render('vv.dashboard', {
+      plugins: plugins.list(),
+    });
   },
 
 };
