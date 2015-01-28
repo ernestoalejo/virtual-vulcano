@@ -25,15 +25,21 @@ app.use(session({
   rolling: true,
   resave: false,
   proxy: false,
-  saveUninitialized: false
+  saveUninitialized: false,
 }));
 
 app.use(bodyParser.json());
 
+
 // Dashboard handler
 app.get('/', promised(dashboard.dashboard));
 
+// Accounts
 app.post('/api/accounts/login', promised(accounts.login));
+app.post('/api/accounts/logout', promised(accounts.logout));
+app.post('/api/accounts/change-password', promised(accounts.changePassword));
+app.get('/accounts/change-password', promised(accounts.changePasswordForm));
+
 
 
 // Start server

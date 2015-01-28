@@ -35,5 +35,43 @@ module.exports = {
       });
   },
 
+  logout: function (req) {
+    return Q.ninvoke(req.session, 'destroy')
+      .then(function() {
+        return {success: true};
+      });
+  },
+
+  changePassword: function (req, res) {
+    var query = {
+      where: {
+        username: req.session.user,
+      },
+    };
+
+    var currentUser;
+    return users.find(query)
+      .then(function (user) {
+        currentUser = user;
+
+        return Q.nfcall(bcrypt.genSalt, 10);
+      })
+      .then(function (salt) {
+        return Q.nfcall(salt, req.body.password, salt);
+      })
+      .then(function (password) {
+        return currentUser.update({
+          password: password, 
+        });
+      })
+      .then(function() {
+        return {success: true};
+      });
+  },
+
+  changePasswordForm: function (req, res) {    
+    
+  },
+
 };
 

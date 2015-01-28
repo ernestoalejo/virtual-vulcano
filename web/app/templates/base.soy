@@ -34,6 +34,10 @@
         <div class="navbar-header">
           <a class="navbar-brand" ui-sref="dashboard">Virtual Vulcano</a>
         </div>
+
+        <ul class="nav navbar-nav navbar-right" ng-controller="accounts.LogoutCtrl as ctrl">
+          <li><a href="" ng-click="ctrl.logout()">Desconectar</a></li>
+        </ul>
       </div>
     </nav>
 
@@ -51,6 +55,7 @@
     <script src="/static/scripts/app.js"></script>
     <script src="/static/scripts/accounts/accounts.js"></script>
     <script src="/static/scripts/accounts/login.js"></script>
+    <script src="/static/scripts/accounts/logout.js"></script>
     <script src="/static/scripts/forms/ajax-form.js"></script>
     <script src="/static/scripts/forms/form-error.js"></script>
     <script src="/static/scripts/forms/form-errors.js"></script>
