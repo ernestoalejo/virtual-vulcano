@@ -6,6 +6,7 @@
 
 var users = require('../model/user.js'),
     bcrypt = require('bcrypt'),
+    templates = require('../lib/templates.js'),
     Q = require('q');
 
 
@@ -49,6 +50,7 @@ module.exports = {
       },
     };
 
+
     var currentUser;
     return users.find(query)
       .then(function (user) {
@@ -69,8 +71,13 @@ module.exports = {
       });
   },
 
+
   changePasswordForm: function (req, res) {    
+    // if (!req.session.user) {
+    //   return templates.render('vv.login');
+    // }
     
+    return templates.render('vv.changePassword');
   },
 
 };
