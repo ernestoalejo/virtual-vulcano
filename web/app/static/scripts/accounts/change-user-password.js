@@ -11,9 +11,11 @@ var module = angular.module('app');
 module.controller('accounts.ChangeUserPasswordCtrl', function (Accounts) {
   var ctrl = this;
   
-  ctrl.changeUserPassword = function () {
+  ctrl.submit = function () {
+    ctrl.sent = false;
+    
     Accounts.changePassword().then(function () {
-      location.href = '/';
+        ctrl.sent = true;
     });
   };
 });
