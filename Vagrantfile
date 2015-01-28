@@ -37,16 +37,6 @@ Vagrant.configure('2') do |config|
     web.vm.synced_folder 'web', '/web'
   end
 
-  # Attach to the web container console when running it
-  config.trigger.after [:up, :reload], :vm => 'web' do
-    info "Executing bash instance inside web container..."
-    system "docker exec -i -t web bash"
-    if $?.exitstatus == 1
-      run "docker logs web"
-      error "Cannot attach to web container!"
-    end
-  end
-
   config.push.define 'database', strategy: 'local-exec' do |push|
     push.script = 'scripts/push/database.sh'
   end
