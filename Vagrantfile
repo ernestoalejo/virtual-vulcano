@@ -30,6 +30,8 @@ Vagrant.configure('2') do |config|
       d.create_args = ['--privileged=true']
       d.build_dir = 'phpmyadmin'
       d.ports = ['9000:80']
+
+      d.link('database:database')
     end
   end
 
