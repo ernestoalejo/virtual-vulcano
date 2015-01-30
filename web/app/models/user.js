@@ -10,6 +10,6 @@ var sequelize = require('./db.js'),
 
 
 module.exports = sequelize.define('User', {
-  name: Sequelize.STRING,
+  username: Sequelize.STRING,
   description: Sequelize.TEXT,
 });
