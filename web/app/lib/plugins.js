@@ -5,26 +5,7 @@
 'use strict';
 
 
-var plugins = [
-  {
-    name: 'Project',
-    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'fa-code-fork',
-  },
-  
-  {
-    name: 'Change password',
-    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'fa-pencil-square-o',
-  },
-
-  {
-    name: 'Monitoring',
-    url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'fa-tachometer',
-  },
-
-];
+var plugins = [];
 
 
 module.exports = {
