@@ -9,19 +9,19 @@ var plugins = [
   {
     name: 'Project',
     url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+    icon: 'fa-code-fork',
   },
   
   {
     name: 'Change password',
     url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+    icon: 'fa-pencil-square-o',
   },
 
   {
     name: 'Monitoring',
     url:  'http://es.wikipedia.org/wiki/Justiniano_I',
-    icon: 'http://www.biografiasyvidas.com/biografia/j/fotos/justiniano.jpg',
+    icon: 'fa-tachometer',
   },
 
 ];
