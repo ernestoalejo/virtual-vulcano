@@ -10,7 +10,13 @@ var express = require('express'),
     promised = require('./middlewares/promised'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    accounts = require('./handlers/accounts');
+    accounts = require('./handlers/accounts'),
+    _ = require('lodash'),
+    fs = require('fs');
+
+_.each(fs.readdirSync('app/plugins'), function (file) {
+  require('./plugins/'+file);
+});
 
 
 var app = express();
