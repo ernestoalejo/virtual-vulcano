@@ -18,7 +18,6 @@ module.exports = {
         username: req.body.user,
       },
     };
-
     return users.find(query)
       .then(function (user) {
         if (!user) {

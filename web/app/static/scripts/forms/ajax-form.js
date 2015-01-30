@@ -99,7 +99,7 @@ AjaxFormCtrl.prototype.submit = function() {
   }
 
   this.sending_ = true;
-  promise.catch(_.bind(this.submitEnd_, this));
+  promise.finally(_.bind(this.submitEnd_, this));
 };
 
 
