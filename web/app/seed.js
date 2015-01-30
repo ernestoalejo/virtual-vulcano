@@ -40,7 +40,7 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
         return Q.nfcall(bcrypt.genSalt, 10);
       })
       .then(function (salt) {
-        return Q.nfcall(salt, 'virtualvulcano', salt);
+        return Q.nfcall(bcrypt.hash, 'virtualvulcano', salt);
       })
       .then(function (password) {
         var User = require('./models/user.js');

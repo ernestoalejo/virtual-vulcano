@@ -65,7 +65,7 @@ module.exports = {
         return Q.nfcall(bcrypt.genSalt, 10);
       })
       .then(function (salt) {
-        return Q.nfcall(salt, req.body.password, salt);
+        return Q.nfcall(bcrypt.hash, req.body.password, salt);
       })
       .then(function (password) {
         return currentUser.update({
