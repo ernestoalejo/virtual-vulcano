@@ -24,6 +24,15 @@ Vagrant.configure('2') do |config|
     end
   end
 
+  config.vm.define 'phpmyadmin' do |phpmyadmin|
+    phpmyadmin.vm.provider 'docker' do |d|
+      d.name = 'phpmyadmin'
+      d.create_args = ['--privileged=true']
+      d.build_dir = 'phpmyadmin'
+      d.ports = ['9000:80']
+    end
+  end
+
   config.vm.define 'web' do |web|
     web.vm.provider 'docker' do |d|
       d.name = 'web'
@@ -44,6 +53,9 @@ Vagrant.configure('2') do |config|
 
   config.push.define 'database', strategy: 'local-exec' do |push|
     push.script = 'scripts/push/database.sh'
+  end
+  config.push.define 'phpmyadmin', strategy: 'local-exec' do |push|
+    push.script = 'scripts/push/phpmyadmin.sh'
   end
   config.push.define 'ftp', strategy: 'local-exec' do |push|
     push.script = 'scripts/push/ftp.sh'
