@@ -7,7 +7,9 @@
 
 var Sequelize = require('sequelize'),
     _ = require('lodash'),
-    fs = require('fs');
+    fs = require('fs'),
+    bcrypt = require('bcrypt'),
+    Q = require('q');
 
 
 var connection = new Sequelize('information_schema', 'root', '29d7a7a7c1be76eb6d1925ce7895a6d9', {
@@ -22,16 +24,29 @@ connection.query('SELECT user FROM mysql.user WHERE user="virtualvulcano"')
       return;
     }
     
-    return connection.query("CREATE DATABASE IF NOT EXISTS virtualvulcano;");
-  })
-  .then(function () {
-    _(fs.readdirSync('app/models'))
-      .filter(function (script) {
-        return script !== 'db.js';
-      })
-      .each(function (script) {
-        require('./models/' + script);
-      });
+    return connection.query("CREATE DATABASE IF NOT EXISTS virtualvulcano;")
+      .then(function () {
+        _(fs.readdirSync('app/models'))
+          .filter(function (script) {
+            return script !== 'db.js';
+          })
+          .each(function (script) {
+            require('./models/' + script);
+          });
 
-    require('./models/db').sync();
-  });
+        require('./models/db').sync();
+
+        return Q.nfcall(bcrypt.genSalt, 10);
+      })
+      .then(function (salt) {
+        return Q.nfcall(salt, 'virtualvulcano', salt);
+      })
+      .then(function (password) {
+        var User = require('./models/user.js');
+        return User.create({
+          username: 'virtualvulcano',
+          password: password,
+        });
+      });
+  })
+  .done();
