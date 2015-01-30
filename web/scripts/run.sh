@@ -12,4 +12,4 @@ echo " ======================================================================"
 echo
 
 node app/seed.js
-node app/index.js
+nodemon app/index.js

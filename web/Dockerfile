@@ -22,11 +22,12 @@ ADD package.json /web/package.json
 ADD bower.json /web/bower.json
 ADD .bowerrc /web/.bowerrc
 
-WORKDIR /web
+RUN npm install -g nodemon
 
-RUN npm i
-RUN bower install --allow-root
+RUN cd /web && npm i
+RUN cd /web && bower install --allow-root
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
+WORKDIR /web
 CMD scripts/run.sh
