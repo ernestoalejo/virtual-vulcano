@@ -18,13 +18,13 @@ var connection = new Sequelize('information_schema', 'root', '29d7a7a7c1be76eb6d
 });
 
 
-connection.query('SELECT user FROM mysql.user WHERE user="virtualvulcano"')
-  .then(function (user) {
-    if(!user) {
+connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualvulcano'")
+  .then(function (schemas) {
+    if (schemas.length) {
       return;
     }
-    
-    return connection.query("CREATE DATABASE IF NOT EXISTS virtualvulcano;")
+
+    return connection.query("CREATE DATABASE virtualvulcano;")
       .then(function () {
         _(fs.readdirSync('app/models'))
           .filter(function (script) {
@@ -34,6 +34,7 @@ connection.query('SELECT user FROM mysql.user WHERE user="virtualvulcano"')
             require('./models/' + script);
           });
 
+        // Create tables
         require('./models/db').sync();
 
         return Q.nfcall(bcrypt.genSalt, 10);
