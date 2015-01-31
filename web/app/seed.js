@@ -12,7 +12,7 @@ var Sequelize = require('sequelize'),
     Q = require('q');
 
 
-var connection = new Sequelize('information_schema', 'root', '29d7a7a7c1be76eb6d1925ce7895a6d9', {
+var connection = new Sequelize('information_schema', 'root', 'vvroot', {
   host: process.env.DATABASE_PORT_3306_TCP_ADDR,
   dialect: 'mysql',
 });

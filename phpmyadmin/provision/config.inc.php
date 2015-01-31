@@ -59,7 +59,7 @@ if (!empty($dbname)) {
     $cfg['Servers'][$i]['extension'] = 'mysqli';
     /* Optional: User for advanced features */
     $cfg['Servers'][$i]['controluser'] = 'root';
-    $cfg['Servers'][$i]['controlpass'] = '29d7a7a7c1be76eb6d1925ce7895a6d9';
+    $cfg['Servers'][$i]['controlpass'] = 'vvroot';
     /* Optional: Advanced phpMyAdmin features */
     $cfg['Servers'][$i]['pmadb'] = $dbname;
     $cfg['Servers'][$i]['bookmarktable'] = 'pma_bookmark';
