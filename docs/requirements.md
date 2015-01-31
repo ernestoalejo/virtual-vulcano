@@ -2,19 +2,19 @@
 Requirements for contributing
 =============================
 
-vagrant
--------
+docker
+------
 
-Install the latest package (>= 1.7.2) from the [webpage](https://www.vagrantup.com/).
+It's pretty evident but you'll need Docker to develop containers. Instructions to install in several platforms [here](https://docs.docker.com/installation/).
 
 
-vagrant-triggers
-----------------
+fig
+---
 
-Needs vagrant; and can be installed using:
+In development we use fig to manage all the services we need to test. You can install it with:
 
 ```shell
-vagrant plugin install vagrant-triggers
+sudo pip install -U fig
 ```
 
-[Webpage](https://github.com/emyl/vagrant-triggers)
+(command from the [official page](http://www.fig.sh/install.html))

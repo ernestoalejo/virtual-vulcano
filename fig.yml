@@ -1,0 +1,15 @@
+
+database:
+  build: database
+  privileged: true
+
+web:
+  build: web
+  privileged: true
+  links:
+  - database
+  ports:
+  - "8000:8000"
+  volumes:
+  - "web:/web"
+  command: "scripts/run/dev.sh"

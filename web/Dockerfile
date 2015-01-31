@@ -30,4 +30,4 @@ RUN cd /web && bower install --allow-root
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
 WORKDIR /web
-CMD scripts/run.sh
+CMD scripts/run/production.sh
