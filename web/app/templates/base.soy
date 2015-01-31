@@ -15,19 +15,21 @@
     <meta charset="utf-8">
     
     <title>Virtual Vulcano</title>
+    
+    <link href="\//fonts.googleapis.com/css?family=Ubuntu|Open+Sans:400italic,700italic,700,400" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/vendor/font-awesome/css/font-awesome.css">
 
+    <link rel="stylesheet" type="text/css" href="/static/styles/components/navbar.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/core/body.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/core/buttons.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/core/form.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/core/tables.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/core/typography.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/layout/content.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/pages/login.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/pages/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="\//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/login.css">
 
   </head>
   <body>
@@ -35,12 +37,12 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" ui-sref="dashboard">Virtual Vulcano</a>
+          <a class="navbar-brand" href="/">VirtualVulcano</a>
         </div>
         
         {if $username}
           <ul class="nav navbar-nav navbar-right" ng-controller="accounts.LogoutCtrl as ctrl">
-            <li><a href="" ng-click="ctrl.logout()">Desconectar</a></li>
+            <li><a href="" ng-click="ctrl.logout()">Logout</a></li>
           </ul>
         {/if}
       </div>

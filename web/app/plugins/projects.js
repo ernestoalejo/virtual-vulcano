@@ -8,7 +8,7 @@ var plugins = require('../lib/plugins');
 
 
 plugins.register({
-  name: 'Project',
+  name: 'Projects',
   url:  '/accounts/project',
   icon: 'fa-code-fork',
 });

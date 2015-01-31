@@ -11,9 +11,10 @@
     {foreach $plugin in $plugins}
       <div class="pull-left">
         <a href="{$plugin.url}">
-          <i class="fa {$plugin.icon} fa-3x"></i>
+          <i class="fa {$plugin.icon}"></i>
+
+          {$plugin.name}
         </a>
-        <a href="{$plugin.url}">{$plugin.name}</a>
       </div>
     {/foreach}
   </div>

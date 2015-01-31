@@ -4,7 +4,7 @@
  * can be found in the LICENSE.md file.
  */
 
-body {
-  padding-top: 50px;
-  font-family: 'Open Sans';
-}
+.navbar-brand {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+} 

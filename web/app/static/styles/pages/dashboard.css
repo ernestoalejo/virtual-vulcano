@@ -5,14 +5,25 @@
  */
 
 .dashboard-grid > div {
-  width: 300px;
-  padding-bottom: 50px;
-  font-family: 'Open Sans';
-  font-size: 20px;
-  color: #333333;
+  margin-bottom: 50px;
+  font-size: 18px;
+  text-align: center;
+  margin-right: 20px;
 }
 
 .dashboard-grid .fa {
   margin-right: 20px;
+  font-size: 35px;
   vertical-align: middle;
+}
+
+.dashboard-grid a {
+  color: #555;
+  padding: 20px 20px;
+}
+
+.dashboard-grid a:hover {
+  text-decoration: none;
+  background-color: #eee;
+  border-radius: 8px;
 }
