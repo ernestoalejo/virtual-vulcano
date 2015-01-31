@@ -4,12 +4,15 @@
 
 'use strict';
 
-
-var sequelize = require('./db.js'),
-    Sequelize = require('sequelize');
+var Sequelize = require('sequelize');
 
 
-module.exports = sequelize.define('User', {
-  username: Sequelize.STRING,
-  password: Sequelize.STRING,
-});
+module.exports = {
+  model: {
+    username: Sequelize.STRING,
+    password: Sequelize.STRING,
+  },
+  options: {
+    freezeTableName: true,
+  },
+};

@@ -4,7 +4,7 @@
 
 'use strict';
 
-var users = require('../models/user.js'),
+var db = require('../models/db'),
     bcrypt = require('bcrypt'),
     templates = require('../lib/templates.js'),
     Q = require('q');
@@ -19,7 +19,7 @@ module.exports = {
       },
     };
 
-    return users.find(query)
+    return db.model('user').find(query)
       .then(function (user) {
         if (!user) {
           return {success: false};
@@ -51,7 +51,7 @@ module.exports = {
     };
 
     var currentUser;
-    return users.find(query)
+    return db.model('user').find(query)
       .then(function (user) {
         currentUser = user;
 
@@ -77,7 +77,6 @@ module.exports = {
         return {success: true};
       });
   },
-
 
   changePasswordForm: function (req, res) {    
     if (!req.session.user) {

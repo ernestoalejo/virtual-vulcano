@@ -12,8 +12,15 @@ var express = require('express'),
     session = require('express-session'),
     accounts = require('./handlers/accounts'),
     _ = require('lodash'),
-    fs = require('fs');
+    fs = require('fs'),
+    db = require('./models/db');
 
+
+// Set up models
+db.setup();
+
+
+// Step up plugins
 _.each(fs.readdirSync('app/plugins'), function (file) {
   require('./plugins/'+file);
 });
@@ -24,7 +31,6 @@ var app = express();
 
 // Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
-
 app.use(session({
   name: 'SID',
   secret: 'VirtualVulcano',
@@ -33,12 +39,12 @@ app.use(session({
   proxy: false,
   saveUninitialized: false,
 }));
-
 app.use(bodyParser.json());
 
 
 // Dashboard handler
 app.get('/', promised(dashboard.dashboard));
+
 
 // Accounts
 app.post('/api/accounts/login', promised(accounts.login));
@@ -47,9 +53,7 @@ app.post('/api/accounts/change-password', promised(accounts.changePassword));
 app.get('/accounts/change-password', promised(accounts.changePasswordForm));
 
 
-
 // Start server
 app.listen(8000, function () {
   console.log('server listening in http://localhost:8000');
 });
-
