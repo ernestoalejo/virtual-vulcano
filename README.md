@@ -36,9 +36,9 @@ You'll need the software specified in the [requirements for contributing](docs/r
 
 1. Fork and clone the repo.
 2. Get the database container up (or the ones you need), in background:
-    ```fig up -d database```.
+    ```fig up -d database```
 3. Switch on the webpage in foreground:
-    ```fig up --no-recreate web```.
+    ```fig up --no-recreate web```
 4. Hack!
 
 
