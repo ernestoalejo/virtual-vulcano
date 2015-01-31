@@ -17,12 +17,12 @@ RUN \
 
 ADD provision/.bashrc /root/.bashrc
 
+RUN npm install -g nodemon
+
 ADD app /web
 ADD package.json /web/package.json
 ADD bower.json /web/bower.json
 ADD .bowerrc /web/.bowerrc
-
-RUN npm install -g nodemon
 
 RUN cd /web && npm i
 RUN cd /web && bower install --allow-root

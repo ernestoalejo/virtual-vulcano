@@ -12,6 +12,7 @@ module.exports = {
     username: Sequelize.STRING,
     password: Sequelize.STRING,
   },
+  
   options: {
     freezeTableName: true,
   },

@@ -72,4 +72,11 @@ module.exports = {
     return models[name];
   },
 
+  /**
+   * @return {Sequelize} The sequelize instance for this app.
+   */
+  sequelize: function () {
+    return sequelize;
+  },
+
 }

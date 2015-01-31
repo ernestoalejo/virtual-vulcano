@@ -18,6 +18,9 @@ var connection = new Sequelize('information_schema', 'root', 'vvroot', {
 });
 
 
+var db;
+
+
 connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualvulcano'")
   .then(function (schemas) {
     if (schemas.length) {
@@ -26,16 +29,11 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
 
     return connection.query("CREATE DATABASE virtualvulcano;")
       .then(function () {
-        _(fs.readdirSync('app/models'))
-          .filter(function (script) {
-            return script !== 'db.js';
-          })
-          .each(function (script) {
-            require('./models/' + script);
-          });
+        db = require('./models/db');
+        db.setup();
 
         // Create tables
-        require('./models/db').sync();
+        db.sequelize().sync();
 
         return Q.nfcall(bcrypt.genSalt, 10);
       })
@@ -43,11 +41,11 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
         return Q.nfcall(bcrypt.hash, 'virtualvulcano', salt);
       })
       .then(function (password) {
-        var User = require('./models/user.js');
-        return User.create({
+        // Create first initial user
+        return db.model('user').create({
           username: 'virtualvulcano',
           password: password,
-        });
+        })
       });
   })
   .done();
