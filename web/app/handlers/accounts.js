@@ -18,6 +18,7 @@ module.exports = {
         username: req.body.user,
       },
     };
+
     return users.find(query)
       .then(function (user) {
         if (!user) {
@@ -54,7 +55,7 @@ module.exports = {
       .then(function (user) {
         currentUser = user;
 
-        return Q.nfcall(bcrypt.compare, req.body.password, user.password)
+        return Q.nfcall(bcrypt.compare, req.body.password, user.password);
       })
       .then(function (res) {
         if(res){
