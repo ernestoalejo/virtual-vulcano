@@ -3,6 +3,14 @@ database:
   build: database
   privileged: true
 
+phpmyadmin:
+  build: phpmyadmin
+  privileged: true
+  ports:
+  - "9000:80"
+  links:
+  - database
+
 web:
   build: web
   privileged: true
