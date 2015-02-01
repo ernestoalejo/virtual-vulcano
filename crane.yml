@@ -1,0 +1,30 @@
+
+containers:
+  database:
+    image: database
+    dockerfile: database
+    run:
+      privileged: true
+
+  phpmyadmin:
+    image: phpmyadmin
+    dockerfile: phpmyadmin
+    run:
+      privileged: true
+      publish:
+      - "9000:80"
+      link:
+      - "database:database"
+
+  web:
+    image: web
+    dockerfile: web
+    run:
+      privileged: true
+      link:
+      - "database:database"
+      publish:
+      - "8000:8000"
+      volumes:
+      - "web:/web"
+      cmd: "scripts/run/dev.sh"

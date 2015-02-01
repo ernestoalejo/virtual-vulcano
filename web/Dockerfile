@@ -19,15 +19,12 @@ ADD provision/.bashrc /root/.bashrc
 
 RUN npm install -g nodemon
 
-ADD app /web
-ADD package.json /web/package.json
-ADD bower.json /web/bower.json
-ADD .bowerrc /web/.bowerrc
+ADD . /web
 
-RUN cd /web && npm i
-RUN cd /web && bower install --allow-root
+WORKDIR /web
+RUN npm i && \
+    bower install --allow-root
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
-WORKDIR /web
 CMD scripts/run/production.sh
