@@ -43,6 +43,12 @@ You'll need the software specified in the [requirements for contributing](docs/r
     ```crane run --recreate web```
 5. Hack!
 
+#### Documentation
+
+* Project structure:
+     * [Technologies](docs/technologies.md)
+
+
 
 License
 -------
