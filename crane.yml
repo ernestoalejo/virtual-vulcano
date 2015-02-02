@@ -38,3 +38,13 @@ containers:
       - "ftp:ftp"
       publish:
       - "21:21"  
+
+  haproxy:
+    image: haproxy
+    dockerfile: haproxy
+    run:
+      privileged: true
+      link:
+      - "haproxy:haproxy"
+      publish:
+      - "80:80"
