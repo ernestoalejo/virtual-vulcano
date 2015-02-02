@@ -28,8 +28,17 @@ Ha participado, entre otras cosas, en las siguientes tareas:
 - Documentación: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/985c40a80680fb6941d45d94abca92f44cb1e4bc)
 
 
-Alberto Moreno Alcarz
+Alberto Moreno Alcaraz
 -----------------------
+
+Ha participado, entre otras cosas, en las siguientes tareas:
+
+- Test para la integracion continua: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/6a83bb0b36b23286e2d97f3b734827159aea9a36)
+- Añadir un nuevo servicio como script de provisionamiento: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/6b46da3da0cd6d068041849bb63c8d4208d45561) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/0acf3697ab51befd4c0070894cfcd8322b8cc5f8) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/d40ec06fd013063bf6b3032b0362d7f9c70d7412)
+- Configuracion para el despliegue automatico: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/6b46da3da0cd6d068041849bb63c8d4208d45561) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/36785e7e1c497f95624b4fc6410b453847f3dab4)
+- Documentacion de las tecnologias usadas: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/445ba3c0d48659924578c5c62cb38c61d56c2c6d)
+- Añadir licencias en algunos ficheros: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/fa56e96c97c9d84c931cff5f44d228243b281551)
+
 
 Jonathan Mulero López
 ----------------------
