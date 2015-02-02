@@ -8,9 +8,11 @@ var plugins = require('../lib/plugins');
 
 
 plugins.register({
-  name: 'Monitoring',
-  url:  '/acounts/monitoring',
-  icon: 'fa-tachometer',
+  dashboard: {
+    name: 'Monitoring',
+    url:  '/acounts/monitoring',
+    icon: 'fa-tachometer',
+  },
   routes: function (app) {
 
   },

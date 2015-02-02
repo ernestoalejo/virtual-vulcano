@@ -5,11 +5,12 @@
 'use strict';
 
 var request = require('supertest'),
-    app = require('../app') ;
+    app = require('../app');
+
 
 describe('dashboard handler', function () {
 
-  it('should redirect to dasboard', function (done) {
+  it('should send the dashboard', function (done) {
     request(app)
       .get('/')
       .expect(200, done);

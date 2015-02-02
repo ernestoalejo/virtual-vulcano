@@ -8,9 +8,11 @@ var plugins = require('../lib/plugins');
 
 
 plugins.register({
-  name: 'Projects',
-  url:  '/accounts/project',
-  icon: 'fa-code-fork',
+  dashboard: {
+    name: 'Projects',
+    url:  '/accounts/project',
+    icon: 'fa-code-fork',
+  },
   routes: function (app) {
 
   },

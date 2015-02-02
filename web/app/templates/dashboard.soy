@@ -10,10 +10,10 @@
   <div class="dashboard-grid">
     {foreach $plugin in $plugins}
       <div class="pull-left">
-        <a href="{$plugin.url}">
-          <i class="fa {$plugin.icon}"></i>
+        <a href="{$plugin.dashboard.url}">
+          <i class="fa {$plugin.dashboard.icon}"></i>
 
-          {$plugin.name}
+          {$plugin.dashboard.name}
         </a>
       </div>
     {/foreach}
