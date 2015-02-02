@@ -1,0 +1,27 @@
+# Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+
+[Unit]
+Description=phpMyAdmin service
+
+Requires=etcd.service
+Requires=docker.service
+Requires=phpmyadmin.service
+
+After=etcd.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill web
+ExecStartPre=-/usr/bin/docker rm web
+ExecStartPre=/usr/bin/docker pull virtualvulcano/phpmyadmin
+ExecStart=/usr/bin/docker run --name web -p 9000:80 virtualvulcano/phpmyadmin
+ExecStop=/usr/bin/docker stop phpmyadmin
+
+[Install]
+WantedBy=multi-user.target
