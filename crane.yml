@@ -28,3 +28,13 @@ containers:
       volumes:
       - "web:/web"
       cmd: "scripts/run/dev.sh"
+
+  ftp:
+    image: ftp
+    dockerfile: ftp
+    run:
+      privileged: true
+      link:
+      - "ftp:ftp"
+      publish:
+      - "21:21"  
