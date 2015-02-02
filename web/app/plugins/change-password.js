@@ -12,43 +12,51 @@ var plugins = require('../lib/plugins'),
     Q = require('q');
 
 
-var changePassword = function (req, res) {
-  var query = {
-    where: {
-      username: req.session.user,
-    },
-  };
+module.exports = {
 
-  var currentUser;
-  return db.model('user').find(query)
-    .then(function (user) {
-      currentUser = user;
+  changePassword: function (req, res) {
+    var query = {
+      where: {
+        username: req.session.user,
+      },
+    };
 
-      return Q.nfcall(bcrypt.compare, req.body.password, user.password);
-    })
-    .then(function (res) {
-      if(res){
-        throw new Error('password not valid');
-      }
-      
-      req.session.user = user.username;
-      return Q.nfcall(bcrypt.genSalt, 10);
-    })
-    .then(function (salt) {
-      return Q.nfcall(bcrypt.hash, req.body.password, salt);
-    })
-    .then(function (password) {
-      return currentUser.update({
-        password: password, 
+    var currentUser;
+    return db.model('user').find(query)
+      .then(function (user) {
+        currentUser = user;
+
+        return Q.nfcall(bcrypt.compare, req.body.password, user.password);
+      })
+      .then(function (res) {
+        if(res){
+          throw new Error('password not valid');
+        }
+        
+        req.session.user = user.username;
+        return Q.nfcall(bcrypt.genSalt, 10);
+      })
+      .then(function (salt) {
+        return Q.nfcall(bcrypt.hash, req.body.password, salt);
+      })
+      .then(function (password) {
+        return currentUser.update({
+          password: password, 
+        });
+      })
+      .then(function() {
+        return {success: true};
       });
-    })
-    .then(function() {
-      return {success: true};
-    });
+  },
+
+  changePasswordForm: function (req, res) {
+
+  },
+
 };
 
 
-var changePasswordForm = function (req, res) {    
+var changePassword = function (req, res) {
   if (!req.session.user) {
     return templates.render(req, 'vv.login');
   }
@@ -62,7 +70,7 @@ plugins.register({
   url:  '/accounts/change-password',
   icon: 'fa-pencil-square-o',
   routes: function (app) {
-    app.post('/api/accounts/change-password', promised(changePassword));
-    app.get('/accounts/change-password', promised(changePasswordForm));
+    app.post('/api/accounts/change-password', promised(module.exports.changePassword));
+    app.get('/accounts/change-password', promised(module.exports.changePasswordForm));
   },
 });
