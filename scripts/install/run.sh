@@ -9,18 +9,19 @@ set -eu
 SERVICES_PATH=/opt/virtualvulcano/services
 
 echo " [*] Cache containers..."
+docker pull virtualvulcano/apache
 docker pull virtualvulcano/database
 docker pull virtualvulcano/ftp
-docker pull virtualvulcano/web
-docker pull virtualvulcano/apache
 docker pull virtualvulcano/haproxy
+docker pull virtualvulcano/phpmyadmin
+docker pull virtualvulcano/web
 
 echo " [*] Prepare dist folder..."
 sudo mkdir -p $SERVICES_PATH
 cd $SERVICES_PATH
 
 echo " [*] Download services files..."
-declare -a SERVICES=("database" "web" "ftp" "haproxy")
+declare -a SERVICES=("database" "web" "ftp" "haproxy" "phpmyadmin")
 for SERVICE in "${SERVICES[@]}"
 do
     echo " [*] Download service $SERVICE definition file"
