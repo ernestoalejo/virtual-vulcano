@@ -1,0 +1,27 @@
+# Copyright (c) 2015 The Virtual Vulcano authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that
+# can be found in the LICENSE.md file.
+
+[Unit]
+Description=Haproxy service
+
+Requires=etcd.service
+Requires=docker.service
+Requires=haproxy.service
+
+After=etcd.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/docker kill haproxy
+ExecStartPre=-/usr/bin/docker rm haproxy
+ExecStartPre=/usr/bin/docker pull virtualvulcano/haproxy
+ExecStart=/usr/bin/docker run --name haproxy -p 21:21 virtualvulcano/haproxy
+ExecStop=/usr/bin/docker stop haproxy
+
+[Install]
+WantedBy=multi-user.target
