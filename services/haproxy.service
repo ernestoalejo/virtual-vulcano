@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill haproxy
 ExecStartPre=-/usr/bin/docker rm haproxy
 ExecStartPre=/usr/bin/docker pull virtualvulcano/haproxy
-ExecStart=/usr/bin/docker run --name haproxy -p 21:21 virtualvulcano/haproxy
+ExecStart=/usr/bin/docker run --name haproxy -p 80:80 virtualvulcano/haproxy
 ExecStop=/usr/bin/docker stop haproxy
 
 [Install]
