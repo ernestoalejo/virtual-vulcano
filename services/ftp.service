@@ -3,7 +3,7 @@
 # can be found in the LICENSE.md file.
 
 [Unit]
-Description=Ftp service
+Description=FTP service
 
 Requires=etcd.service
 Requires=docker.service
