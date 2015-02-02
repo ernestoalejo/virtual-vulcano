@@ -44,8 +44,6 @@ containers:
     dockerfile: haproxy
     run:
       privileged: true
-      link:
-      - "haproxy:haproxy"
       publish:
       - "80:80"
 
