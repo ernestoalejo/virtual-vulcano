@@ -12,10 +12,6 @@ var users = require('../models/db.js'),
 module.exports = {
 
   dashboard: function (req, res) {
-    if (!req.session.user) {
-      return templates.render(req, 'vv.login');
-    }
-    
     return templates.render(req, 'vv.dashboard', {
       plugins: plugins.list(),
     });
