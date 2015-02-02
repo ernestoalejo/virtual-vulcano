@@ -34,8 +34,6 @@ containers:
     dockerfile: ftp
     run:
       privileged: true
-      link:
-      - "ftp:ftp"
       publish:
       - "21:21"  
 
