@@ -20,6 +20,14 @@ Ernesto Alejo Oltra
 Santiago Puerta Correa
 -----------------------
 
+Ha participado, entre otras cosas, en las siguientes tareas:
+
+- Test para la intregación continua en: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/669ab9aea6b299161490389fc6b78dc28f1ede26)
+- Scripts de provisionamiento: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/7c95deccf6afa75a3ca2541865e755e60bebb25e) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/c7df6cfb30d0b1dac7f4336df5c81175d9209f95) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/9ee63684668b56020364e18393c7da4b36b3d1d2) [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/cc0c5664b33a01a1eb993976f643ba662a5a67e3)
+- Configuración para el despliegue automático: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/84a5167be0ce610eb4c648d2bc7661bdf241bfda)
+- Documentación: [commit](https://github.com/ernestoalejo/virtual-vulcano/commit/985c40a80680fb6941d45d94abca92f44cb1e4bc)
+
+
 Alberto Moreno Alcarz
 -----------------------
 
