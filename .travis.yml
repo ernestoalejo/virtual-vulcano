@@ -4,4 +4,4 @@ language: node_js
 node_js:
   - "0.10"
 
-script: cd web && npm install && gulp test
+script: "cd web && npm install && gulp test"
