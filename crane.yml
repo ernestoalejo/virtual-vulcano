@@ -48,3 +48,13 @@ containers:
       - "haproxy:haproxy"
       publish:
       - "80:80"
+
+  apache:
+    image: apache
+    dockerfile: apache
+    run:
+      privileged: true
+      link:
+      - "database:database"
+      publish:
+      - "8001:8001"
