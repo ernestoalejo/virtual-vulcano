@@ -9,6 +9,8 @@ var plugins = require('./plugins');
 
 describe('plugins register', function () {
 
+  beforeEach(plugins._reset);
+
   it('should return an empty list', function () {
     expect(plugins.list()).toEqual([]);
   });

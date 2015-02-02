@@ -31,4 +31,12 @@ module.exports = {
     return plugins;
   },
 
+  /**
+   * Empty list of plugins.
+   * @private
+   */
+  _reset: function () {
+    plugins = [];
+  },
+
 };
