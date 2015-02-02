@@ -25,6 +25,8 @@ WORKDIR /web
 RUN npm i && \
     bower install --allow-root
 
+EXPOSE 8080:8000
+
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
 CMD scripts/run/production.sh
