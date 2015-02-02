@@ -13,13 +13,14 @@ docker pull virtualvulcano/database
 docker pull virtualvulcano/ftp
 docker pull virtualvulcano/web
 docker pull virtualvulcano/apache
+docker pull virtualvulcano/haproxy
 
 echo " [*] Prepare dist folder..."
 sudo mkdir -p $SERVICES_PATH
 cd $SERVICES_PATH
 
 echo " [*] Download services files..."
-declare -a SERVICES=("database" "web" "ftp")
+declare -a SERVICES=("database" "web" "ftp" "haproxy")
 for SERVICE in "${SERVICES[@]}"
 do
     echo " [*] Download service $SERVICE definition file"
