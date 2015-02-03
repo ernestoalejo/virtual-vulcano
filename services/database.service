@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill database
 ExecStartPre=-/usr/bin/docker rm database
 ExecStartPre=/usr/bin/docker pull virtualvulcano/database
-ExecStart=/usr/bin/docker run --name database -p 3306:3306 virtualvulcano/database
+ExecStart=/usr/bin/docker run --name database virtualvulcano/database
 ExecStop=/usr/bin/docker stop database
 
 [Install]
