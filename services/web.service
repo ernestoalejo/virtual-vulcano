@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill web
 ExecStartPre=-/usr/bin/docker rm web
 ExecStartPre=/usr/bin/docker pull virtualvulcano/web
-ExecStart=/usr/bin/docker run --name web virtualvulcano/web --link database:database
+ExecStart=/usr/bin/docker run --link database:database --name web virtualvulcano/web
 ExecStop=/usr/bin/docker stop web
 
 [Install]
