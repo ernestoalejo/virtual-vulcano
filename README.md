@@ -27,6 +27,14 @@ curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/scrip
 ```
 
 
+Documentation
+-------------
+
+- [Requirements for contributing](docs/requirements.md)
+- [Pushing a new release](docs/push.md)
+- [Technologies](docs/tecnologies.md) (in spanish)
+
+
 Contributing
 ------------
 
