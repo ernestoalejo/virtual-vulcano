@@ -35,14 +35,19 @@ done
 # We initialize the containers manually to control the times
 echo " [*] Restart database service"
 sudo systemctl restart database
-echo " [*] Restart ftp service"
+
+echo " [*] Restart FTP service"
 sudo systemctl restart ftp
-echo " Waiting for database"
+
+echo " [*] Waiting for database"
 sleep 20
+
 echo " [*] Restart web service"
 sudo systemctl restart web
-echo " [*] Restart phpmyadmin service"
+
+echo " [*] Restart phpMyAdmin service"
 sudo systemctl restart phpmyadmin
-echo " [*] Restart haproxy service"
+
+echo " [*] Restart HAProxy service"
 sudo systemctl restart haproxy
 
