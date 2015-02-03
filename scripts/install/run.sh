@@ -29,5 +29,14 @@ do
 
     echo " [*] Enable & start $SERVICE service..."
     sudo systemctl enable $SERVICES_PATH/$SERVICE.service
-    sudo systemctl start $SERVICE
 done
+
+
+# We initialize the containers manually to control the times
+sudo systemctl start database
+sudo systemctl start ftp
+sleep 20
+sudo systemctl start web
+sudo systemctl start phpmyadmin
+sudo systemctl start haproxy
+
