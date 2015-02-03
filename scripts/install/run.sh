@@ -33,10 +33,10 @@ done
 
 
 # We initialize the containers manually to control the times
-sudo systemctl start database
-sudo systemctl start ftp
+sudo systemctl restart database
+sudo systemctl restart ftp
 sleep 20
-sudo systemctl start web
-sudo systemctl start phpmyadmin
-sudo systemctl start haproxy
+sudo systemctl restart web
+sudo systemctl restart phpmyadmin
+sudo systemctl restart haproxy
 
