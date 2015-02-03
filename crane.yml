@@ -1,13 +1,13 @@
 
 containers:
   database:
-    image: database
+    image: virtualvulcano/database
     dockerfile: database
     run:
       privileged: true
 
   phpmyadmin:
-    image: phpmyadmin
+    image: virtualvulcano/phpmyadmin
     dockerfile: phpmyadmin
     run:
       privileged: true
@@ -17,7 +17,7 @@ containers:
       - "database:database"
 
   web:
-    image: web
+    image: virtualvulcano/web
     dockerfile: web
     run:
       privileged: true
@@ -30,7 +30,7 @@ containers:
       cmd: "scripts/run/dev.sh"
 
   ftp:
-    image: ftp
+    image: virtualvulcano/ftp
     dockerfile: ftp
     run:
       privileged: true
@@ -38,7 +38,7 @@ containers:
       - "21:21"  
 
   haproxy:
-    image: haproxy
+    image: virtualvulcano/haproxy
     dockerfile: haproxy
     run:
       privileged: true
@@ -46,7 +46,7 @@ containers:
       - "80:80"
 
   apache:
-    image: apache
+    image: virtualvulcano/apache
     dockerfile: apache
     run:
       privileged: true
