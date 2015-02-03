@@ -22,7 +22,9 @@ virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulc
 Install on your server
 ----------------------
 
-TODO
+```bash
+curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/scripts/install/run.sh | bash
+```
 
 
 Contributing
