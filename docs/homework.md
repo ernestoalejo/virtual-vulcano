@@ -11,11 +11,16 @@ Virtual Vulcano
 
 Hemos querido resaltar especialmente los commits más importantes de las cosas relacionadas con la asignatura. Tenemos más cambios que por importancia no han entrado en esta lista o que pertenecen más al dominio de DAI o de la aplicación en sí misma.
 
+Con respecto a las issues hemos tenido un trabajo totalmente colaborativo y distribuido a través de la plataforma de Github y nuestra participación ha sido uniforme a lo largo de las distintas tareas (lo que dificulta de forma considerable vincularlas individualmente).
+
 
 Ernesto Alejo Oltra
 --------------------
 
-
+- Scripts de provisionamiento para el desarrollo usando Crane [cbd8d5dcda](https://github.com/ernestoalejo/virtual-vulcano/commit/cbd8d5dcdadd171a2f2d1e76192bff8c7f6d140a)
+- Colaborar facilitando la implementación de los tests: [afc15ba1d2](https://github.com/ernestoalejo/virtual-vulcano/commit/afc15ba1d29386af4ec50bee1f7e0d6cf834bef1) o solucionando problemas complejos de dependencias en éstos últimos: [c9eb7600fe](https://github.com/ernestoalejo/virtual-vulcano/commit/c9eb7600fe3ac2dfafceda31b5c15a73075aaddb).
+- Scripts de despliegue automático en Docker Hub: [f9cf5f518a](https://github.com/ernestoalejo/virtual-vulcano/commit/f9cf5f518a72943988184a84a1552d0bf29ad2ad) y he colaborado con el despliegue en la máquina del cliente (Azure, Digital Ocean, ...) [4ac7febcc9](https://github.com/ernestoalejo/virtual-vulcano/commit/4ac7febcc95857f8d9c993f8c2b0e7c419292b61).
+- Cubrir parte de la redacción de la práctica: [aa588eeaf9](https://github.com/ernestoalejo/virtual-vulcano/commit/aa588eeaf943d09264e453e5cac8163f957948bd) o describir tecnologías que usamos en el proyecto: [8e77e83837](https://github.com/ernestoalejo/virtual-vulcano/commit/8e77e83837d08ee03f8c4a06abf392f26a346971).
 
 
 --------------------------------------------------------------------------------
@@ -24,7 +29,7 @@ Ernesto Alejo Oltra
 Santiago Puerta Correa
 -----------------------
 
-- Test para la intregación continua en: [669ab9aea6](https://github.com/ernestoalejo/virtual-vulcano/commit/669ab9aea6b299161490389fc6b78dc28f1ede26)
+- Test para la integración continua en: [669ab9aea6](https://github.com/ernestoalejo/virtual-vulcano/commit/669ab9aea6b299161490389fc6b78dc28f1ede26)
 - Scripts de provisionamiento: [7c95deccf6](https://github.com/ernestoalejo/virtual-vulcano/commit/7c95deccf6afa75a3ca2541865e755e60bebb25e), [c7df6cfb30](https://github.com/ernestoalejo/virtual-vulcano/commit/c7df6cfb30d0b1dac7f4336df5c81175d9209f95), [9ee6368466](https://github.com/ernestoalejo/virtual-vulcano/commit/9ee63684668b56020364e18393c7da4b36b3d1d2) y [cc0c5664b3](https://github.com/ernestoalejo/virtual-vulcano/commit/cc0c5664b33a01a1eb993976f643ba662a5a67e3)
 - Configuración para el despliegue automático: [84a5167be0](https://github.com/ernestoalejo/virtual-vulcano/commit/84a5167be0ce610eb4c648d2bc7661bdf241bfda)
 - Documentación: [985c40a806](https://github.com/ernestoalejo/virtual-vulcano/commit/985c40a80680fb6941d45d94abca92f44cb1e4bc)
