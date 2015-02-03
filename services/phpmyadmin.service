@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill phpmyadmin
 ExecStartPre=-/usr/bin/docker rm phpmyadmin
 ExecStartPre=/usr/bin/docker pull virtualvulcano/phpmyadmin
-ExecStart=/usr/bin/docker run --name phpmyadmin -p 9000:80 virtualvulcano/phpmyadmin
+ExecStart=/usr/bin/docker run --name phpmyadmin virtualvulcano/phpmyadmin
 ExecStop=/usr/bin/docker stop phpmyadmin
 
 [Install]
