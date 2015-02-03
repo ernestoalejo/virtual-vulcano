@@ -56,6 +56,3 @@ y documentando tecnologias utilizadas: [1cdc7f69b7](https://github.com/ernestoal
 [commit2](https://github.com/ernestoalejo/virtual-vulcano/commit/b68d9b0440f4ae43c5c43dcd5da4d67e54d5e403)
 - A participado en scripts de provisionamiento de FTP y haproxy: [0858537591](https://github.com/ernestoalejo/virtual-vulcano/commit/08585375916f34bab43f3a1cbba7a9da5ec82396)
 - También en provisionamiento con gulp: [07d5dd69c3](https://github.com/ernestoalejo/virtual-vulcano/commit/07d5dd69c3e4beb2b519de9274d98ef7a6c414de)
-
-
-
