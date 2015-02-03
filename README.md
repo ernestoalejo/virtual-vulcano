@@ -22,7 +22,7 @@ virtual-vulcano [![Build Status](https://travis-ci.org/ernestoalejo/virtual-vulc
 Install on your server
 ----------------------
 
-```bash
+```shell
 curl https://raw.githubusercontent.com/ernestoalejo/virtual-vulcano/master/scripts/install/run.sh | bash
 ```
 
@@ -44,12 +44,6 @@ You'll need the software specified in the [requirements for contributing](docs/r
 4. Run the web container:
     ```crane run --recreate web```
 5. Hack!
-
-#### Documentation
-
-* Project structure:
-     * [Technologies](docs/technologies.md)
-
 
 
 License
