@@ -32,8 +32,7 @@ Documentation
 
 - [Requirements for contributing](docs/requirements.md)
 - [Pushing a new release](docs/push.md)
-- [Technologies](docs/tecnologies.md) (in spanish)
-
+- [Technologies](docs/technologies.md) (in spanish)
 
 Contributing
 ------------
