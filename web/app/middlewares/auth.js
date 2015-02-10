@@ -4,9 +4,17 @@
 
 'use strict';
 
+var urls = [
+  '/accounts/login',
+  '/api/accounts/login',
+];
 
 module.exports = function (req, res, next) {
-  if(!req.session.user && req.path!=='/accounts/login') {
+  var redirect = urls.some(function (url) {
+    return (req.path === url);
+  });
+
+  if(!req.session.user && !redirect) {
     res.redirect('/accounts/login');
     return;
   }

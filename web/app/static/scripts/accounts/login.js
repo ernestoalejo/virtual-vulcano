@@ -18,7 +18,7 @@ module.controller('accounts.LoginCtrl', function (Accounts) {
     
     return Accounts.login(ctrl.data).then(function (data) {
       if (data.success) {
-        location.reload();
+        location.replace('/');
         return;
       }
 
