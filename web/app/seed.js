@@ -32,9 +32,10 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
         db = require('./models/db');
         db.setup();
 
-        // Create tables
-        db.sequelize().sync();
-
+        // Create tables for all models
+        return db.sequelize().sync();
+      })
+      .then(function () {
         return Q.nfcall(bcrypt.genSalt, 10);
       })
       .then(function (salt) {
@@ -45,7 +46,10 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
         return db.model('user').create({
           username: 'virtualvulcano',
           password: password,
-        })
-      });
+        });
+      })
+  })
+  .then(function () {
+    console.log(' [*] Seed finished!');
   })
   .done();

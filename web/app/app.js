@@ -8,6 +8,7 @@ var express = require('express'),
     path = require('path'),
     promised = require('./middlewares/promised'),
     bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
     session = require('express-session'),
     _ = require('lodash'),
     fs = require('fs'),
@@ -24,6 +25,7 @@ var app = express();
 
 // Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use(cookieParser())
 app.use(session({
   name: 'SID',
   secret: 'VirtualVulcano',
@@ -31,6 +33,7 @@ app.use(session({
   resave: false,
   proxy: false,
   saveUninitialized: false,
+  store: db.sessionsSequelizeStore(),
 }));
 app.use(bodyParser.json());
 

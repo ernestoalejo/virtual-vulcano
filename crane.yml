@@ -27,7 +27,7 @@ containers:
       - "database:database"
       publish:
       - "8000:8000"
-      volumes:
+      volume:
       - "web:/web"
       cmd: "scripts/run/dev.sh"
 

@@ -6,6 +6,8 @@
 
 var Sequelize = require('sequelize'),
     fs = require('fs'),
+    session = require('express-session'),
+    SequelizeStore = require('connect-session-sequelize')(session.Store),
     _ = require('lodash');
 
 
@@ -15,6 +17,9 @@ var sequelize = new Sequelize('virtualvulcano', 'root', 'vvroot', {
   logging: false,
 });
 
+var sessionsSequelizeStore = new SequelizeStore({
+  db: sequelize,
+});
 
 var models = {};
 
@@ -51,7 +56,6 @@ module.exports = {
     _.each(_.filter(relationships), function (relation) {
       relation(models);
     });
-
   },
 
   /**
@@ -79,4 +83,8 @@ module.exports = {
     return sequelize;
   },
 
-}
+  sessionsSequelizeStore: function () {
+    return sessionsSequelizeStore;
+  },
+
+};
