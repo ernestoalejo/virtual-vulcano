@@ -47,7 +47,3 @@ sudo systemctl restart web
 
 echo " [*] Restart phpMyAdmin service"
 sudo systemctl restart phpmyadmin
-
-echo " [*] Restart HAProxy service"
-sudo systemctl restart haproxy
-
