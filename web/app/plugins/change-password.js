@@ -12,7 +12,7 @@ var plugins = require('../lib/plugins'),
     Q = require('q');
 
 
-var changePassword = function (req, res) {
+var changePassword = function (req) {
   var query = {
     where: {
       username: req.session.user,
@@ -48,7 +48,7 @@ var changePassword = function (req, res) {
 };
 
 
-var changePasswordForm = function (req, res) {
+var changePasswordForm = function (req) {
   return templates.render(req, 'vv.changePassword');
 };
 

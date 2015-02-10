@@ -25,7 +25,7 @@ var app = express();
 
 // Middlewares
 app.use('/static', express.static(path.join(__dirname, 'static')));
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(session({
   name: 'SID',
   secret: 'VirtualVulcano',

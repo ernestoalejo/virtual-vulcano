@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that
 // can be found in the LICENSE.md file.
 
-'use strict'
+'use strict';
 
 var Sequelize = require('sequelize'),
     fs = require('fs'),

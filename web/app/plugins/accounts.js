@@ -12,7 +12,7 @@ var db = require('../models/db'),
     promised = require('../middlewares/promised');
 
 
-var login = function (req, res) {
+var login = function (req) {
   var query = {
     where: {
       username: req.body.user,

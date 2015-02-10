@@ -1,0 +1,31 @@
+{
+    "browser": true,
+    "curly": true,
+    "globalstrict": true,
+    "immed": true,
+    "indent": 2,
+    "latedef": true,
+    "loopfunc": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "quotmark": "single",
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "globals": {
+        "it": false,
+        "describe": false,
+        "xdescribe": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "inject": false,
+        "jasmine": false,
+        "expect": false,
+        "spyOn": false,
+        "_": false,
+        "angular": false,
+        "moment": false,
+        "app": false
+    }
+}

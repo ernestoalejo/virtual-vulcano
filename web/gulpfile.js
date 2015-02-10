@@ -33,14 +33,25 @@ gulp.task('test', function () {
 gulp.task('lint:jshint:node', function () {
   return lint('node', [
     'app/**/*.js',
+    '!app/**/*.test.js',
     '!app/static/**/*.js',
   ]);
 });
 
 
-gulp.task('lint:jshint:client', function () {
+gulp.task('lint:jshint:browser', function () {
   return lint('browser', [
     'app/static/**/*.js',
+    '!app/**/*.test.js',
+    '!app/static/vendor/**/*.js',
+  ]);
+});
+
+
+gulp.task('lint:jshint:tests', function () {
+  return lint('browser', [
+    'app/static/**/*.js',
+    '!app/**/*.test.js',
     '!app/static/vendor/**/*.js',
   ]);
 });

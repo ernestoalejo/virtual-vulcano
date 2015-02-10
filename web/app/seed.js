@@ -6,8 +6,6 @@
 
 
 var Sequelize = require('sequelize'),
-    _ = require('lodash'),
-    fs = require('fs'),
     bcrypt = require('bcrypt'),
     Q = require('q');
 
@@ -21,13 +19,13 @@ var connection = new Sequelize('information_schema', 'root', 'vvroot', {
 var db;
 
 
-connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualvulcano'")
+connection.query('SELECT schema_name FROM schemata WHERE schema_name = \'virtualvulcano\'')
   .then(function (schemas) {
     if (schemas.length) {
       return;
     }
 
-    return connection.query("CREATE DATABASE virtualvulcano;")
+    return connection.query('CREATE DATABASE virtualvulcano;')
       .then(function () {
         db = require('./models/db');
         db.setup();
@@ -47,7 +45,7 @@ connection.query("SELECT schema_name FROM schemata WHERE schema_name = 'virtualv
           username: 'virtualvulcano',
           password: password,
         });
-      })
+      });
   })
   .then(function () {
     console.log(' [*] Seed finished!');
