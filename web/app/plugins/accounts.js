@@ -8,6 +8,7 @@ var db = require('../models/db'),
     bcrypt = require('bcrypt'),
     Q = require('q'),
     plugins = require('../lib/plugins'),
+    templates = require('../lib/templates.js'),
     promised = require('../middlewares/promised');
 
 
@@ -36,6 +37,11 @@ var login = function (req, res) {
 };
 
 
+var loginForm = function (req) {
+  return templates.render(req, 'vv.login');
+};
+
+
 var logout = function (req) {
   return Q.ninvoke(req.session, 'destroy')
     .then(function() {
@@ -48,5 +54,6 @@ plugins.register({
   routes: function (app) {
     app.post('/api/accounts/login', promised(login));
     app.post('/api/accounts/logout', promised(logout));
+    app.get('/accounts/login', promised(loginForm));
   },
 });
