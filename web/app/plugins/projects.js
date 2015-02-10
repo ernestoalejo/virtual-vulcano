@@ -13,6 +13,7 @@ plugins.register({
     url:  '/accounts/project',
     icon: 'fa-code-fork',
   },
+  
   routes: function (app) {
 
   },

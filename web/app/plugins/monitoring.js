@@ -13,6 +13,7 @@ plugins.register({
     url:  '/acounts/monitoring',
     icon: 'fa-tachometer',
   },
+  
   routes: function (app) {
 
   },

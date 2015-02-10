@@ -59,6 +59,7 @@ plugins.register({
     url:  '/accounts/change-password',
     icon: 'fa-pencil-square-o',
   },
+  
   routes: function (app) {
     app.post('/api/accounts/change-password', promised(changePassword));
     app.get('/accounts/change-password', promised(changePasswordForm));
