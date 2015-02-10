@@ -6,7 +6,7 @@
 
 var express = require('express'),
     path = require('path'),
-    promised = require('./middlewares/promised'),
+    auth = require('./middlewares/auth'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
@@ -36,6 +36,7 @@ app.use(session({
   store: db.sessionsSequelizeStore(),
 }));
 app.use(bodyParser.json());
+app.use(auth);
 
 
 // Setup plugins
