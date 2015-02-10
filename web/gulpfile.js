@@ -8,31 +8,60 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')();
 
 
+var lint = function (conf, files) {
+  return gulp.src(files)
+    .pipe($.jshint('lint/' + conf + '.json'))
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.jshint.reporter('fail'))
+    .on('error', function (err) {
+      process.exit(1);
+    });
+};
+
+
 gulp.task('default', function () {
   $.util.log($.util.colors.red('Specify a task!'));
 });
 
 
 gulp.task('test', function () {
-    return gulp.src('app/**/*.test.js')
-        .pipe($.jasmine());
+  return gulp.src('app/**/*.test.js')
+    .pipe($.jasmine());
 });
 
 
-gulp.task('lint:jshint', function () {
-    gulp.src('**/*.js')
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('jshint-stylish'));
+gulp.task('lint:jshint:node', function () {
+  return lint('node', [
+    'app/**/*.js',
+    '!app/static/**/*.js',
+  ]);
+});
+
+
+gulp.task('lint:jshint:client', function () {
+  return lint('browser', [
+    'app/static/**/*.js',
+    '!app/static/vendor/**/*.js',
+  ]);
 });
 
 
 gulp.task('lint:jscs', function () {
-    return gulp.src('**/*.js')
-        .pipe(jscs());
+    var files = [
+      'app/**/*.js',
+      '!app/static/vendor/**/*.js',
+    ];
+
+    return gulp.src(files)
+        .pipe($.jscs('lint/jscs.json'));
 });
 
 
-gulp.task('lint', ['lint:jshint','lint:jscs']);
+gulp.task('lint', [
+  'lint:jshint:node',
+  'lint:jshint:client', 
+  'lint:jscs'
+  ]);
 
 
 gulp.task('serve', function () {
