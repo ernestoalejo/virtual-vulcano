@@ -5,14 +5,23 @@
 'use strict';
 
 var templates = require('../lib/templates.js'),
-    plugins = require('../lib/plugins.js'),
-    promised = require('../middlewares/promised'),
-    _ = require('lodash');
+  plugins = require('../lib/plugins.js'),
+  promised = require('../middlewares/promised'),
+  _ = require('lodash');
 
 
 var dashboard = function (req, res) {
+  var pluginList = _.cloneDeep(plugins.list());
+  pluginList.forEach(function (plugin) {
+    if (!plugin.dashboard || !_.isFunction(plugin.dashboard.url)) {
+      return;
+    }
+
+    plugin.dashboard.url = plugin.dashboard.url(req);
+  });
+
   return templates.render(req, 'vv.dashboard', {
-    plugins: _.filter(plugins.list(), 'dashboard'),
+    plugins: _.filter(pluginList, 'dashboard'),
   });
 };
 
@@ -22,6 +31,3 @@ plugins.register({
     app.get('/', promised(dashboard));
   },
 });
-
-
-
