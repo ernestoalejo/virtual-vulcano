@@ -1,0 +1,29 @@
+
+{namespace vv}
+
+
+/**
+ * Add project page.
+ */
+{template .createProjects}
+  
+  <h1>Create project</h1>
+
+  <div ng-controller="projects.CreateCtrl as ctrl">
+    <ajax-form submit="ctrl.submit()">
+      
+      <form-group name="name">
+        <label class="control-label" for="name">Name</label>
+        <input class="form-control" id="name" type="text" name="name" ng-model="ctrl.data.name" required>
+        
+        <form-errors>
+          <form-error when="required">Enter the project name</form-error>
+        </form-errors>
+      </form-group>
+
+      <form-submit>Create</form-submit>
+
+    </ajax-form>
+  </div>
+{/template}
+

@@ -4,25 +4,17 @@
 
 'use strict';
 
-
 var module = angular.module('app');
 
 
-module.controller('accounts.LoginCtrl', function (Accounts) {
+module.controller('projects.CreateCtrl', function (Projects) {
   var ctrl = this;
 
   ctrl.data = {};
 
   ctrl.submit = function () {
-    ctrl.error = false;
-    
-    return Accounts.login(ctrl.data).then(function (data) {
-      if (data.success) {
-        location.href = '/';
-        return;
-      }
-
-      ctrl.error = true;
+    return Projects.create(ctrl.data).then(function () {
+      location.href = '/projects';
     });
   };
 });
