@@ -5,6 +5,8 @@ containers:
     dockerfile: database
     run:
       privileged: true
+      volume:
+      - "/tmp/mysql_data:/var/lib/mysql"
 
   phpmyadmin:
     image: virtualvulcano/phpmyadmin

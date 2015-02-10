@@ -20,7 +20,7 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill database
 ExecStartPre=-/usr/bin/docker rm database
 ExecStartPre=/usr/bin/docker pull virtualvulcano/database
-ExecStart=/usr/bin/docker run --name database virtualvulcano/database
+ExecStart=/usr/bin/docker run --name database --volume /var/mysql_data:/var/lib/mysql virtualvulcano/database
 ExecStop=/usr/bin/docker stop database
 
 [Install]
