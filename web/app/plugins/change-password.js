@@ -23,7 +23,6 @@ var changePassword = function (req) {
   return db.model('user').find(query)
     .then(function (user) {
       currentUser = user;
-
       return Q.nfcall(bcrypt.compare, req.body.password, user.password);
     })
     .then(function (res) {
